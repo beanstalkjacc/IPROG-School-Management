@@ -1,0 +1,4 @@
+C:\Users\Aika Manuel\source\repos\School\School\x64\Debug\School.vcxproj.AssemblyReference.cache
+C:\Users\Aika Manuel\source\repos\School\School\x64\Debug\School.Home.resources
+C:\Users\Aika Manuel\source\repos\School\School\x64\Debug\School.vcxproj.GenerateResource.cache
+C:\Users\Aika Manuel\source\repos\School\School\x64\Debug\School.Add.resources
