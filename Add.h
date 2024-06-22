@@ -1,7 +1,5 @@
 #pragma once
-
 namespace School {
-
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -9,6 +7,7 @@ namespace School {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+#pragma region Initialize
 	/// <summary>
 	/// Summary for Add
 	/// </summary>
@@ -34,65 +33,49 @@ namespace School {
 				delete components;
 			}
 		}
+	// Buttons
 	private: System::Windows::Forms::Button^ add_backBtn;
-	private: System::Windows::Forms::TextBox^ add_fnameTxt;
-
+	private: System::Windows::Forms::Button^ add_addBtn;
+	
+	// Name		
 	private: System::Windows::Forms::Label^ add_nameLbl;
-
-
-
+	private: System::Windows::Forms::FlowLayoutPanel^ add_nameFlwPnl;
+	private: System::Windows::Forms::TextBox^ add_fnameTxt;
 	private: System::Windows::Forms::TextBox^ add_mnameTxt;
 	private: System::Windows::Forms::TextBox^ add_lnameTxt;
-	private: System::Windows::Forms::Button^ add_submitBtn;
+	
+	// ID
+	private: System::Windows::Forms::Label^ add_idLbl;
+	private: System::Windows::Forms::FlowLayoutPanel^ add_idFlwPnl;
+	private: System::Windows::Forms::TextBox^ add_id1Txt;
+	private: System::Windows::Forms::Label^ add_idDashLbl;
+	private: System::Windows::Forms::TextBox^ add_id2Txt;
 
+	// Grades
+	private: System::Windows::Forms::Label^ add_gradeLbl;
+	private: System::Windows::Forms::FlowLayoutPanel^ add_gradesFlwPnl;
+	private: System::Windows::Forms::Label^ add_subLbl;
+	private: System::Windows::Forms::ComboBox^ add_subCbx;
+	private: System::Windows::Forms::Label^ add_actLbl;
+	private: System::Windows::Forms::TextBox^ add_actGrade;
+	private: System::Windows::Forms::Label^ add_midLbl;
+	private: System::Windows::Forms::TextBox^ add_midGrade;
+	private: System::Windows::Forms::Label^ add_finalsLbl;
+	private: System::Windows::Forms::TextBox^ add_finalsGrade;
+	private: System::Windows::Forms::Label^ add_recitLbl;
+	private: System::Windows::Forms::TextBox^ add_recitGrade;
+	private: System::Windows::Forms::Label^ add_attnLbl;
+	private: System::Windows::Forms::TextBox^ add_attnGrade;
 
-
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::TextBox^ textBox5;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
-
-
-
-
-	protected:
-
-	protected:
-
-	protected:
-
+	private: System::Windows::Forms::DataGridView^ add_studentsDataGrid;
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
+#pragma endregion
 
-#pragma region Windows Form Designer generated code
+#pragma region Design
 		/// <summary>
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
@@ -101,30 +84,36 @@ namespace School {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Add::typeid));
 			this->add_backBtn = (gcnew System::Windows::Forms::Button());
-			this->add_fnameTxt = (gcnew System::Windows::Forms::TextBox());
+			this->add_addBtn = (gcnew System::Windows::Forms::Button());
 			this->add_nameLbl = (gcnew System::Windows::Forms::Label());
+			this->add_nameFlwPnl = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->add_fnameTxt = (gcnew System::Windows::Forms::TextBox());
 			this->add_mnameTxt = (gcnew System::Windows::Forms::TextBox());
 			this->add_lnameTxt = (gcnew System::Windows::Forms::TextBox());
-			this->add_submitBtn = (gcnew System::Windows::Forms::Button());
-			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->flowLayoutPanel2->SuspendLayout();
-			this->flowLayoutPanel1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->add_idLbl = (gcnew System::Windows::Forms::Label());
+			this->add_idFlwPnl = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->add_id1Txt = (gcnew System::Windows::Forms::TextBox());
+			this->add_idDashLbl = (gcnew System::Windows::Forms::Label());
+			this->add_id2Txt = (gcnew System::Windows::Forms::TextBox());
+			this->add_gradeLbl = (gcnew System::Windows::Forms::Label());
+			this->add_gradesFlwPnl = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->add_subCbx = (gcnew System::Windows::Forms::ComboBox());
+			this->add_actGrade = (gcnew System::Windows::Forms::TextBox());
+			this->add_midGrade = (gcnew System::Windows::Forms::TextBox());
+			this->add_finalsGrade = (gcnew System::Windows::Forms::TextBox());
+			this->add_recitGrade = (gcnew System::Windows::Forms::TextBox());
+			this->add_attnGrade = (gcnew System::Windows::Forms::TextBox());
+			this->add_subLbl = (gcnew System::Windows::Forms::Label());
+			this->add_actLbl = (gcnew System::Windows::Forms::Label());
+			this->add_midLbl = (gcnew System::Windows::Forms::Label());
+			this->add_finalsLbl = (gcnew System::Windows::Forms::Label());
+			this->add_recitLbl = (gcnew System::Windows::Forms::Label());
+			this->add_attnLbl = (gcnew System::Windows::Forms::Label());
+			this->add_studentsDataGrid = (gcnew System::Windows::Forms::DataGridView());
+			this->add_nameFlwPnl->SuspendLayout();
+			this->add_idFlwPnl->SuspendLayout();
+			this->add_gradesFlwPnl->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->add_studentsDataGrid))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// add_backBtn
@@ -134,213 +123,343 @@ namespace School {
 			this->add_backBtn->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Firebrick;
 			this->add_backBtn->FlatAppearance->MouseOverBackColor = System::Drawing::Color::LightCoral;
 			this->add_backBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->add_backBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->add_backBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->add_backBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"add_backBtn.Image")));
+			this->add_backBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->add_backBtn->Location = System::Drawing::Point(1, 1);
 			this->add_backBtn->Name = L"add_backBtn";
-			this->add_backBtn->Size = System::Drawing::Size(57, 28);
+			this->add_backBtn->Size = System::Drawing::Size(43, 41);
 			this->add_backBtn->TabIndex = 7;
-			this->add_backBtn->Text = L"BACK";
+			this->add_backBtn->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->add_backBtn->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->add_backBtn->UseVisualStyleBackColor = false;
 			this->add_backBtn->Click += gcnew System::EventHandler(this, &Add::add_backBtn_Click);
 			// 
+			// add_addBtn
+			// 
+			this->add_addBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F));
+			this->add_addBtn->Location = System::Drawing::Point(574, 367);
+			this->add_addBtn->Name = L"add_addBtn";
+			this->add_addBtn->Size = System::Drawing::Size(79, 26);
+			this->add_addBtn->TabIndex = 12;
+			this->add_addBtn->Text = L"Add";
+			this->add_addBtn->UseVisualStyleBackColor = true;
+			this->add_addBtn->Click += gcnew System::EventHandler(this, &Add::add_addBtn_Click);
+			// 
+			// add_nameLbl
+			// 
+			this->add_nameLbl->AutoSize = true;
+			this->add_nameLbl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_nameLbl->Location = System::Drawing::Point(32, 55);
+			this->add_nameLbl->Name = L"add_nameLbl";
+			this->add_nameLbl->Size = System::Drawing::Size(50, 18);
+			this->add_nameLbl->TabIndex = 9;
+			this->add_nameLbl->Text = L"NAME";
+			this->add_nameLbl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// add_nameFlwPnl
+			// 
+			this->add_nameFlwPnl->Controls->Add(this->add_fnameTxt);
+			this->add_nameFlwPnl->Controls->Add(this->add_mnameTxt);
+			this->add_nameFlwPnl->Controls->Add(this->add_lnameTxt);
+			this->add_nameFlwPnl->Location = System::Drawing::Point(90, 49);
+			this->add_nameFlwPnl->Name = L"add_nameFlwPnl";
+			this->add_nameFlwPnl->Size = System::Drawing::Size(563, 34);
+			this->add_nameFlwPnl->TabIndex = 14;
+			// 
 			// add_fnameTxt
 			// 
+			this->add_fnameTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->add_fnameTxt->ForeColor = System::Drawing::Color::Silver;
 			this->add_fnameTxt->Location = System::Drawing::Point(3, 3);
 			this->add_fnameTxt->Name = L"add_fnameTxt";
-			this->add_fnameTxt->Size = System::Drawing::Size(100, 20);
+			this->add_fnameTxt->Size = System::Drawing::Size(181, 26);
 			this->add_fnameTxt->TabIndex = 8;
 			this->add_fnameTxt->Text = L"First Name";
 			this->add_fnameTxt->Enter += gcnew System::EventHandler(this, &Add::add_fnameTxt_Enter);
 			this->add_fnameTxt->Leave += gcnew System::EventHandler(this, &Add::add_fnameTxt_Leave);
 			// 
-			// add_nameLbl
-			// 
-			this->add_nameLbl->AutoSize = true;
-			this->add_nameLbl->Location = System::Drawing::Point(33, 54);
-			this->add_nameLbl->Name = L"add_nameLbl";
-			this->add_nameLbl->Size = System::Drawing::Size(38, 13);
-			this->add_nameLbl->TabIndex = 9;
-			this->add_nameLbl->Text = L"NAME";
-			this->add_nameLbl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
 			// add_mnameTxt
 			// 
+			this->add_mnameTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->add_mnameTxt->ForeColor = System::Drawing::Color::Silver;
-			this->add_mnameTxt->Location = System::Drawing::Point(109, 3);
+			this->add_mnameTxt->Location = System::Drawing::Point(190, 3);
 			this->add_mnameTxt->Name = L"add_mnameTxt";
-			this->add_mnameTxt->Size = System::Drawing::Size(100, 20);
+			this->add_mnameTxt->Size = System::Drawing::Size(181, 26);
 			this->add_mnameTxt->TabIndex = 10;
 			this->add_mnameTxt->Text = L"Middle Name";
+			this->add_mnameTxt->Enter += gcnew System::EventHandler(this, &Add::add_mnameTxt_Enter);
+			this->add_mnameTxt->Leave += gcnew System::EventHandler(this, &Add::add_mnameTxt_Leave);
 			// 
 			// add_lnameTxt
 			// 
+			this->add_lnameTxt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->add_lnameTxt->ForeColor = System::Drawing::Color::Silver;
-			this->add_lnameTxt->Location = System::Drawing::Point(215, 3);
+			this->add_lnameTxt->Location = System::Drawing::Point(377, 3);
 			this->add_lnameTxt->Name = L"add_lnameTxt";
-			this->add_lnameTxt->Size = System::Drawing::Size(100, 20);
+			this->add_lnameTxt->Size = System::Drawing::Size(181, 26);
 			this->add_lnameTxt->TabIndex = 11;
 			this->add_lnameTxt->Text = L"Last Name";
+			this->add_lnameTxt->Enter += gcnew System::EventHandler(this, &Add::add_lnameTxt_Enter);
+			this->add_lnameTxt->Leave += gcnew System::EventHandler(this, &Add::add_lnameTxt_Leave);
 			// 
-			// add_submitBtn
+			// add_idLbl
 			// 
-			this->add_submitBtn->Location = System::Drawing::Point(597, 376);
-			this->add_submitBtn->Name = L"add_submitBtn";
-			this->add_submitBtn->Size = System::Drawing::Size(75, 23);
-			this->add_submitBtn->TabIndex = 12;
-			this->add_submitBtn->Text = L"Submit";
-			this->add_submitBtn->UseVisualStyleBackColor = true;
-			this->add_submitBtn->Click += gcnew System::EventHandler(this, &Add::add_submitBtn_Click);
+			this->add_idLbl->AutoSize = true;
+			this->add_idLbl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_idLbl->Location = System::Drawing::Point(32, 95);
+			this->add_idLbl->Name = L"add_idLbl";
+			this->add_idLbl->Size = System::Drawing::Size(88, 18);
+			this->add_idLbl->TabIndex = 25;
+			this->add_idLbl->Text = L"ID NUMBER";
+			this->add_idLbl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// flowLayoutPanel2
+			// add_idFlwPnl
 			// 
-			this->flowLayoutPanel2->Controls->Add(this->add_fnameTxt);
-			this->flowLayoutPanel2->Controls->Add(this->add_mnameTxt);
-			this->flowLayoutPanel2->Controls->Add(this->add_lnameTxt);
-			this->flowLayoutPanel2->Location = System::Drawing::Point(77, 47);
-			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			this->flowLayoutPanel2->Size = System::Drawing::Size(565, 26);
-			this->flowLayoutPanel2->TabIndex = 14;
+			this->add_idFlwPnl->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->add_idFlwPnl->Controls->Add(this->add_id1Txt);
+			this->add_idFlwPnl->Controls->Add(this->add_idDashLbl);
+			this->add_idFlwPnl->Controls->Add(this->add_id2Txt);
+			this->add_idFlwPnl->Location = System::Drawing::Point(126, 89);
+			this->add_idFlwPnl->Name = L"add_idFlwPnl";
+			this->add_idFlwPnl->Size = System::Drawing::Size(153, 34);
+			this->add_idFlwPnl->TabIndex = 15;
 			// 
-			// label1
+			// add_id1Txt
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(33, 92);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(52, 13);
-			this->label1->TabIndex = 16;
-			this->label1->Text = L"GRADES";
-			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->add_id1Txt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_id1Txt->ForeColor = System::Drawing::Color::Silver;
+			this->add_id1Txt->Location = System::Drawing::Point(3, 3);
+			this->add_id1Txt->Name = L"add_id1Txt";
+			this->add_id1Txt->Size = System::Drawing::Size(40, 26);
+			this->add_id1Txt->TabIndex = 6;
+			this->add_id1Txt->Text = L"•••";
+			this->add_id1Txt->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->add_id1Txt->Enter += gcnew System::EventHandler(this, &Add::add_id1Txt_Enter);
+			this->add_id1Txt->Leave += gcnew System::EventHandler(this, &Add::add_id1Txt_Leave);
 			// 
-			// flowLayoutPanel1
+			// add_idDashLbl
 			// 
-			this->flowLayoutPanel1->Controls->Add(this->comboBox1);
-			this->flowLayoutPanel1->Controls->Add(this->textBox4);
-			this->flowLayoutPanel1->Controls->Add(this->textBox1);
-			this->flowLayoutPanel1->Controls->Add(this->textBox2);
-			this->flowLayoutPanel1->Controls->Add(this->textBox3);
-			this->flowLayoutPanel1->Controls->Add(this->textBox5);
-			this->flowLayoutPanel1->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
-			this->flowLayoutPanel1->Location = System::Drawing::Point(146, 113);
-			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(108, 157);
-			this->flowLayoutPanel1->TabIndex = 17;
+			this->add_idDashLbl->AutoSize = true;
+			this->add_idDashLbl->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->add_idDashLbl->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_idDashLbl->Location = System::Drawing::Point(49, 0);
+			this->add_idDashLbl->Name = L"add_idDashLbl";
+			this->add_idDashLbl->Size = System::Drawing::Size(14, 32);
+			this->add_idDashLbl->TabIndex = 26;
+			this->add_idDashLbl->Text = L"-";
+			this->add_idDashLbl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// comboBox1
+			// add_id2Txt
 			// 
-			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
-			this->comboBox1->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"DBMGTLAB", L"DBMGTLEC", L"DISSTRU1", L"IPROGLAB",
-					L"IPROGLEC"
+			this->add_id2Txt->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_id2Txt->ForeColor = System::Drawing::Color::Silver;
+			this->add_id2Txt->Location = System::Drawing::Point(69, 3);
+			this->add_id2Txt->Name = L"add_id2Txt";
+			this->add_id2Txt->Size = System::Drawing::Size(79, 26);
+			this->add_id2Txt->TabIndex = 27;
+			this->add_id2Txt->Text = L"••••••";
+			this->add_id2Txt->Enter += gcnew System::EventHandler(this, &Add::add_id2Txt_Enter);
+			this->add_id2Txt->Leave += gcnew System::EventHandler(this, &Add::add_id2Txt_Leave);
+			// 
+			// add_gradeLbl
+			// 
+			this->add_gradeLbl->AutoSize = true;
+			this->add_gradeLbl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_gradeLbl->Location = System::Drawing::Point(32, 130);
+			this->add_gradeLbl->Name = L"add_gradeLbl";
+			this->add_gradeLbl->Size = System::Drawing::Size(66, 18);
+			this->add_gradeLbl->TabIndex = 16;
+			this->add_gradeLbl->Text = L"GRADES";
+			this->add_gradeLbl->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// add_gradesFlwPnl
+			// 
+			this->add_gradesFlwPnl->Controls->Add(this->add_subCbx);
+			this->add_gradesFlwPnl->Controls->Add(this->add_actGrade);
+			this->add_gradesFlwPnl->Controls->Add(this->add_midGrade);
+			this->add_gradesFlwPnl->Controls->Add(this->add_finalsGrade);
+			this->add_gradesFlwPnl->Controls->Add(this->add_recitGrade);
+			this->add_gradesFlwPnl->Controls->Add(this->add_attnGrade);
+			this->add_gradesFlwPnl->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
+			this->add_gradesFlwPnl->Location = System::Drawing::Point(161, 160);
+			this->add_gradesFlwPnl->Name = L"add_gradesFlwPnl";
+			this->add_gradesFlwPnl->Size = System::Drawing::Size(118, 198);
+			this->add_gradesFlwPnl->TabIndex = 17;
+			// 
+			// add_subCbx
+			// 
+			this->add_subCbx->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->add_subCbx->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->add_subCbx->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_subCbx->FormattingEnabled = true;
+			this->add_subCbx->Items->AddRange(gcnew cli::array< System::Object^  >(10) {
+				L"DBMGTLAB", L"DBMGTLEC", L"DISSTRU1", L"GEFILDIS",
+					L"GEPANPI", L"GEPEFITE", L"GEPURPCO", L"IPROGLAB", L"IPROGLEC", L"REMMCRAT"
 			});
-			this->comboBox1->Location = System::Drawing::Point(3, 3);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(100, 21);
-			this->comboBox1->Sorted = true;
-			this->comboBox1->TabIndex = 5;
+			this->add_subCbx->Location = System::Drawing::Point(3, 3);
+			this->add_subCbx->Name = L"add_subCbx";
+			this->add_subCbx->Size = System::Drawing::Size(107, 28);
+			this->add_subCbx->Sorted = true;
+			this->add_subCbx->TabIndex = 5;
 			// 
-			// textBox4
+			// add_actGrade
 			// 
-			this->textBox4->Location = System::Drawing::Point(3, 30);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(100, 20);
-			this->textBox4->TabIndex = 3;
+			this->add_actGrade->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_actGrade->ForeColor = System::Drawing::Color::Silver;
+			this->add_actGrade->Location = System::Drawing::Point(3, 37);
+			this->add_actGrade->Name = L"add_actGrade";
+			this->add_actGrade->Size = System::Drawing::Size(107, 26);
+			this->add_actGrade->TabIndex = 3;
+			this->add_actGrade->Text = L"0.00";
+			this->add_actGrade->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->add_actGrade->Enter += gcnew System::EventHandler(this, &Add::add_actGrade_Enter);
+			this->add_actGrade->Leave += gcnew System::EventHandler(this, &Add::add_actGrade_Leave);
 			// 
-			// textBox1
+			// add_midGrade
 			// 
-			this->textBox1->Location = System::Drawing::Point(3, 56);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
-			this->textBox1->TabIndex = 0;
+			this->add_midGrade->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_midGrade->ForeColor = System::Drawing::Color::Silver;
+			this->add_midGrade->Location = System::Drawing::Point(3, 69);
+			this->add_midGrade->Name = L"add_midGrade";
+			this->add_midGrade->Size = System::Drawing::Size(107, 26);
+			this->add_midGrade->TabIndex = 0;
+			this->add_midGrade->Text = L"0.00";
+			this->add_midGrade->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->add_midGrade->Enter += gcnew System::EventHandler(this, &Add::add_midGrade_Enter);
+			this->add_midGrade->Leave += gcnew System::EventHandler(this, &Add::add_midGrade_Leave);
 			// 
-			// textBox2
+			// add_finalsGrade
 			// 
-			this->textBox2->Location = System::Drawing::Point(3, 82);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 20);
-			this->textBox2->TabIndex = 1;
+			this->add_finalsGrade->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_finalsGrade->ForeColor = System::Drawing::Color::Silver;
+			this->add_finalsGrade->Location = System::Drawing::Point(3, 101);
+			this->add_finalsGrade->Name = L"add_finalsGrade";
+			this->add_finalsGrade->Size = System::Drawing::Size(107, 26);
+			this->add_finalsGrade->TabIndex = 1;
+			this->add_finalsGrade->Text = L"0.00";
+			this->add_finalsGrade->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->add_finalsGrade->Enter += gcnew System::EventHandler(this, &Add::add_finalsGrade_Enter);
+			this->add_finalsGrade->Leave += gcnew System::EventHandler(this, &Add::add_finalsGrade_Leave);
 			// 
-			// textBox3
+			// add_recitGrade
 			// 
-			this->textBox3->Location = System::Drawing::Point(3, 108);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 20);
-			this->textBox3->TabIndex = 2;
+			this->add_recitGrade->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_recitGrade->ForeColor = System::Drawing::Color::Silver;
+			this->add_recitGrade->Location = System::Drawing::Point(3, 133);
+			this->add_recitGrade->Name = L"add_recitGrade";
+			this->add_recitGrade->Size = System::Drawing::Size(107, 26);
+			this->add_recitGrade->TabIndex = 2;
+			this->add_recitGrade->Text = L"0.00";
+			this->add_recitGrade->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->add_recitGrade->Enter += gcnew System::EventHandler(this, &Add::add_recitGrade_Enter);
+			this->add_recitGrade->Leave += gcnew System::EventHandler(this, &Add::add_recitGrade_Leave);
 			// 
-			// textBox5
+			// add_attnGrade
 			// 
-			this->textBox5->Location = System::Drawing::Point(3, 134);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(100, 20);
-			this->textBox5->TabIndex = 4;
+			this->add_attnGrade->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_attnGrade->ForeColor = System::Drawing::Color::Silver;
+			this->add_attnGrade->Location = System::Drawing::Point(3, 165);
+			this->add_attnGrade->Name = L"add_attnGrade";
+			this->add_attnGrade->Size = System::Drawing::Size(107, 26);
+			this->add_attnGrade->TabIndex = 4;
+			this->add_attnGrade->Text = L"0.00";
+			this->add_attnGrade->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->add_attnGrade->Enter += gcnew System::EventHandler(this, &Add::add_attnGrade_Enter);
+			this->add_attnGrade->Leave += gcnew System::EventHandler(this, &Add::add_attnGrade_Leave);
 			// 
-			// label2
+			// add_subLbl
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(74, 146);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(49, 13);
-			this->label2->TabIndex = 18;
-			this->label2->Text = L"Activities";
+			this->add_subLbl->AutoSize = true;
+			this->add_subLbl->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_subLbl->Location = System::Drawing::Point(57, 166);
+			this->add_subLbl->Name = L"add_subLbl";
+			this->add_subLbl->Size = System::Drawing::Size(63, 20);
+			this->add_subLbl->TabIndex = 23;
+			this->add_subLbl->Text = L"Subject";
 			// 
-			// label3
+			// add_actLbl
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(74, 172);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(49, 13);
-			this->label3->TabIndex = 19;
-			this->label3->Text = L"Midterms";
+			this->add_actLbl->AutoSize = true;
+			this->add_actLbl->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_actLbl->Location = System::Drawing::Point(57, 200);
+			this->add_actLbl->Name = L"add_actLbl";
+			this->add_actLbl->Size = System::Drawing::Size(75, 20);
+			this->add_actLbl->TabIndex = 18;
+			this->add_actLbl->Text = L"Activities";
 			// 
-			// label4
+			// add_midLbl
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(74, 198);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(34, 13);
-			this->label4->TabIndex = 20;
-			this->label4->Text = L"Finals";
+			this->add_midLbl->AutoSize = true;
+			this->add_midLbl->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_midLbl->Location = System::Drawing::Point(57, 232);
+			this->add_midLbl->Name = L"add_midLbl";
+			this->add_midLbl->Size = System::Drawing::Size(76, 20);
+			this->add_midLbl->TabIndex = 19;
+			this->add_midLbl->Text = L"Midterms";
 			// 
-			// label5
+			// add_finalsLbl
 			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(74, 224);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(55, 13);
-			this->label5->TabIndex = 21;
-			this->label5->Text = L"Recitation";
+			this->add_finalsLbl->AutoSize = true;
+			this->add_finalsLbl->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_finalsLbl->Location = System::Drawing::Point(57, 264);
+			this->add_finalsLbl->Name = L"add_finalsLbl";
+			this->add_finalsLbl->Size = System::Drawing::Size(47, 20);
+			this->add_finalsLbl->TabIndex = 20;
+			this->add_finalsLbl->Text = L"Finals";
 			// 
-			// label6
+			// add_recitLbl
 			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(74, 250);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(62, 13);
-			this->label6->TabIndex = 22;
-			this->label6->Text = L"Attendance";
+			this->add_recitLbl->AutoSize = true;
+			this->add_recitLbl->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_recitLbl->Location = System::Drawing::Point(57, 296);
+			this->add_recitLbl->Name = L"add_recitLbl";
+			this->add_recitLbl->Size = System::Drawing::Size(83, 20);
+			this->add_recitLbl->TabIndex = 21;
+			this->add_recitLbl->Text = L"Recitation";
 			// 
-			// label7
+			// add_attnLbl
 			// 
-			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(74, 119);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(43, 13);
-			this->label7->TabIndex = 23;
-			this->label7->Text = L"Subject";
+			this->add_attnLbl->AutoSize = true;
+			this->add_attnLbl->Font = (gcnew System::Drawing::Font(L"Century Gothic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->add_attnLbl->Location = System::Drawing::Point(57, 328);
+			this->add_attnLbl->Name = L"add_attnLbl";
+			this->add_attnLbl->Size = System::Drawing::Size(98, 20);
+			this->add_attnLbl->TabIndex = 22;
+			this->add_attnLbl->Text = L"Attendance";
 			// 
-			// dataGridView1
+			// add_studentsDataGrid
 			// 
-			this->dataGridView1->AllowUserToAddRows = false;
-			this->dataGridView1->AllowUserToDeleteRows = false;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(292, 92);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->ReadOnly = true;
-			this->dataGridView1->Size = System::Drawing::Size(350, 178);
-			this->dataGridView1->TabIndex = 24;
+			this->add_studentsDataGrid->AllowUserToAddRows = false;
+			this->add_studentsDataGrid->AllowUserToDeleteRows = false;
+			this->add_studentsDataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->add_studentsDataGrid->Location = System::Drawing::Point(303, 163);
+			this->add_studentsDataGrid->Name = L"add_studentsDataGrid";
+			this->add_studentsDataGrid->ReadOnly = true;
+			this->add_studentsDataGrid->Size = System::Drawing::Size(350, 188);
+			this->add_studentsDataGrid->TabIndex = 24;
 			// 
 			// Add
 			// 
@@ -348,47 +467,131 @@ namespace School {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::MistyRose;
 			this->ClientSize = System::Drawing::Size(684, 411);
-			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->flowLayoutPanel1);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->add_nameLbl);
-			this->Controls->Add(this->flowLayoutPanel2);
-			this->Controls->Add(this->add_submitBtn);
 			this->Controls->Add(this->add_backBtn);
+			this->Controls->Add(this->add_addBtn);
+			this->Controls->Add(this->add_nameLbl);
+			this->Controls->Add(this->add_nameFlwPnl);
+			this->Controls->Add(this->add_idLbl);
+			this->Controls->Add(this->add_idFlwPnl);
+			this->Controls->Add(this->add_gradeLbl);
+			this->Controls->Add(this->add_gradesFlwPnl);
+			this->Controls->Add(this->add_subLbl);
+			this->Controls->Add(this->add_attnLbl);
+			this->Controls->Add(this->add_recitLbl);
+			this->Controls->Add(this->add_finalsLbl);
+			this->Controls->Add(this->add_midLbl);
+			this->Controls->Add(this->add_actLbl);
+			this->Controls->Add(this->add_studentsDataGrid);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Add";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"School Management System";
-			this->flowLayoutPanel2->ResumeLayout(false);
-			this->flowLayoutPanel2->PerformLayout();
-			this->flowLayoutPanel1->ResumeLayout(false);
-			this->flowLayoutPanel1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->add_nameFlwPnl->ResumeLayout(false);
+			this->add_nameFlwPnl->PerformLayout();
+			this->add_idFlwPnl->ResumeLayout(false);
+			this->add_idFlwPnl->PerformLayout();
+			this->add_gradesFlwPnl->ResumeLayout(false);
+			this->add_gradesFlwPnl->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->add_studentsDataGrid))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
+
 #pragma endregion
+
+#pragma region Functions
+		// TODO: Add to db
+	private: System::Void addNewRecord() {
+		
+		// DO NOT MODIFY
+		MessageBox::Show("New Record Added", "Success", MessageBoxButtons::OK, 
+			MessageBoxIcon::Information);
+		this->add_fnameTxt->Text = "First Name"; this->add_fnameTxt->ForeColor = System::Drawing::Color::Silver;
+		this->add_mnameTxt->Text = "Middle Name"; this->add_mnameTxt->ForeColor = System::Drawing::Color::Silver;
+		this->add_lnameTxt->Text = "Last Name"; this->add_lnameTxt->ForeColor = System::Drawing::Color::Silver;
+		this->add_id1Txt->Text = "•••"; this->add_id1Txt->ForeColor = System::Drawing::Color::Silver;
+		this->add_id2Txt->Text = "••••••"; this->add_id2Txt->ForeColor = System::Drawing::Color::Silver;
+		this->add_subCbx->SelectedIndex = -1;
+		this->add_actGrade->Text = "0.00"; this->add_actGrade->ForeColor = System::Drawing::Color::Silver;
+		this->add_midGrade->Text = "0.00"; this->add_midGrade->ForeColor = System::Drawing::Color::Silver;
+		this->add_finalsGrade->Text = "0.00"; this->add_finalsGrade->ForeColor = System::Drawing::Color::Silver;
+		this->add_recitGrade->Text = "0.00"; this->add_recitGrade->ForeColor = System::Drawing::Color::Silver;
+		this->add_attnGrade->Text = "0.00"; this->add_attnGrade->ForeColor = System::Drawing::Color::Silver;
+	}
+
+	private: System::String^ printData() {
+		String^ name = "[NAME] " + this->add_fnameTxt->Text + " " + this->add_mnameTxt->Text + " " +
+			this->add_lnameTxt->Text;
+		String^ id = "\n[ID] " + this->add_id1Txt->Text + "-" + this->add_id2Txt->Text;
+		String^ grades = "\n[GRADES]\n\tSubject: " + this->add_subCbx->Text + "\n\tActivities: " +
+			this->add_actGrade->Text + "\n\tMidterms: " + this->add_midGrade->Text + "\n\tFinals: " +
+			this->add_finalsGrade->Text + "\n\tRecitation: " + this->add_recitGrade->Text +
+			"\n\tAttendance: " + this->add_attnGrade->Text;
+		String^ newstudent = "Is the following data correct?\n\n" + name + id + grades;
+
+		return newstudent;
+	}
+
+	// TODO: Check if record for selected subject already exists for student
+	private: System::Boolean checkIfExists() {
+		return false;
+		//MessageBox::Show("Record Already Exists", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
+
+	private: System::Boolean checkEmpty() {
+		if (this->add_fnameTxt->Text->Equals("First Name") ||
+			this->add_mnameTxt->Text->Equals("Middle Name") ||
+			this->add_lnameTxt->Text->Equals("Last Name") ||
+			this->add_id1Txt->Text->Equals("•••") ||
+			this->add_id2Txt->Text->Equals("••••••") ||
+			this->add_subCbx->Text->Equals("") ||
+			this->add_actGrade->ForeColor == System::Drawing::Color::Silver ||
+			this->add_midGrade->ForeColor == System::Drawing::Color::Silver ||
+			this->add_finalsGrade->ForeColor == System::Drawing::Color::Silver ||
+			this->add_recitGrade->ForeColor == System::Drawing::Color::Silver ||
+			this->add_attnGrade->ForeColor == System::Drawing::Color::Silver) {
+			MessageBox::Show("Field is Empty", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// TODO: Validate that all grade input is a valid double number
+	private: System::Boolean checkGrades() {
+		//MessageBox::Show("Grade Input is not a Number", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+
+		return true;
+	}
+#pragma endregion
+
+#pragma region UI Actions
 	// Buttons Action
 	public: bool addBackToHome = false;
 	private: System::Void add_backBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 		this->addBackToHome = true;
 	}
-	private: System::Void add_submitBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ name = this->add_fnameTxt->Text + " " + this->add_mnameTxt->Text + " " +
-			this->add_lnameTxt->Text;
-		MessageBox::Show(name, "Log", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	private: System::Void add_addBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		if(!checkEmpty()) {
+			if (checkGrades()) {
+				if (!checkIfExists()) {
+					if (MessageBox::Show(printData(), "Confirm", MessageBoxButtons::YesNo,
+						MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
+						addNewRecord();
+					}
+				}
+				else {
+					MessageBox::Show("Record Already Exists", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+				}
+			}
+		}
 	}
+#pragma endregion
 
-	// Textbox UI
+#pragma region Textbox UI
 	private: System::Void add_fnameTxt_Enter(System::Object^ sender, System::EventArgs^ e) {
 		if (this->add_fnameTxt->Text->Equals("First Name")) {
 			this->add_fnameTxt->ForeColor = System::Drawing::Color::Black;
@@ -400,8 +603,116 @@ namespace School {
 			this->add_fnameTxt->ForeColor = System::Drawing::Color::Silver;
 			this->add_fnameTxt->Text = "First Name";
 		}
-		;
 	}
-	
+	private: System::Void add_mnameTxt_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_mnameTxt->Text->Equals("Middle Name")) {
+			this->add_mnameTxt->ForeColor = System::Drawing::Color::Black;
+			this->add_mnameTxt->Text = "";
+		}
+	}
+	private: System::Void add_mnameTxt_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_mnameTxt->Text->Equals("")) {
+			this->add_mnameTxt->ForeColor = System::Drawing::Color::Silver;
+			this->add_mnameTxt->Text = "Middle Name";
+		}
+	}
+	private: System::Void add_lnameTxt_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_lnameTxt->Text->Equals("Last Name")) {
+			this->add_lnameTxt->ForeColor = System::Drawing::Color::Black;
+			this->add_lnameTxt->Text = "";
+		}
+	}
+	private: System::Void add_lnameTxt_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_lnameTxt->Text->Equals("")) {
+			this->add_lnameTxt->ForeColor = System::Drawing::Color::Silver;
+			this->add_lnameTxt->Text = "Last Name";
+		}
+	}
+	private: System::Void add_id1Txt_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_id1Txt->Text->Equals("•••")) {
+			this->add_id1Txt->ForeColor = System::Drawing::Color::Black;
+			this->add_id1Txt->Text = "";
+		}
+	}
+	private: System::Void add_id1Txt_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_id1Txt->Text->Equals("")) {
+			this->add_id1Txt->ForeColor = System::Drawing::Color::Silver;
+			this->add_id1Txt->Text = "•••";
+		}
+	}
+	private: System::Void add_id2Txt_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_id2Txt->Text->Equals("••••••")) {
+			this->add_id2Txt->ForeColor = System::Drawing::Color::Black;
+			this->add_id2Txt->Text = "";
+		}
+	}
+	private: System::Void add_id2Txt_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_id2Txt->Text->Equals("")) {
+			this->add_id2Txt->ForeColor = System::Drawing::Color::Silver;
+			this->add_id2Txt->Text = "••••••";
+		}
+	}
+	private: System::Void add_actGrade_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_actGrade->ForeColor == System::Drawing::Color::Silver) {
+			this->add_actGrade->ForeColor = System::Drawing::Color::Black;
+			this->add_actGrade->Text = "";
+		}
+	}
+	private: System::Void add_actGrade_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_actGrade->Text->Equals("")) {
+			this->add_actGrade->ForeColor = System::Drawing::Color::Silver;
+			this->add_actGrade->Text = "0.00";
+		}
+	}
+	private: System::Void add_midGrade_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_midGrade->ForeColor == System::Drawing::Color::Silver) {
+			this->add_midGrade->ForeColor = System::Drawing::Color::Black;
+			this->add_midGrade->Text = "";
+		}
+	}
+	private: System::Void add_midGrade_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_midGrade->Text->Equals("")) {
+			this->add_midGrade->ForeColor = System::Drawing::Color::Silver;
+			this->add_midGrade->Text = "0.00";
+		}
+	}
+	private: System::Void add_finalsGrade_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_finalsGrade->ForeColor == System::Drawing::Color::Silver) {
+			this->add_finalsGrade->ForeColor = System::Drawing::Color::Black;
+			this->add_finalsGrade->Text = "";
+		}
+	}
+	private: System::Void add_finalsGrade_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_finalsGrade->Text->Equals("")) {
+			this->add_finalsGrade->ForeColor = System::Drawing::Color::Silver;
+			this->add_finalsGrade->Text = "0.00";
+		}
+	}
+	private: System::Void add_recitGrade_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_recitGrade->ForeColor == System::Drawing::Color::Silver) {
+			this->add_recitGrade->ForeColor = System::Drawing::Color::Black;
+			this->add_recitGrade->Text = "";
+		}
+	}
+	private: System::Void add_recitGrade_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_recitGrade->Text->Equals("")) {
+			this->add_recitGrade->ForeColor = System::Drawing::Color::Silver;
+			this->add_recitGrade->Text = "0.00";
+		}
+	}
+	private: System::Void add_attnGrade_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_attnGrade->ForeColor == System::Drawing::Color::Silver) {
+			this->add_attnGrade->ForeColor = System::Drawing::Color::Black;
+			this->add_attnGrade->Text = "";
+		}
+	}
+	private: System::Void add_attnGrade_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (this->add_attnGrade->Text->Equals("")) {
+			this->add_attnGrade->ForeColor = System::Drawing::Color::Silver;
+			this->add_attnGrade->Text = "0.00";
+		}
+	}
+#pragma endregion
+
 };
 }

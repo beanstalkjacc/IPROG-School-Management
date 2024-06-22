@@ -75,9 +75,12 @@ namespace School {
 			// 
 			// home_addBtn
 			// 
-			this->home_addBtn->Location = System::Drawing::Point(292, 174);
+			this->home_addBtn->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->home_addBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->home_addBtn->Location = System::Drawing::Point(283, 154);
 			this->home_addBtn->Name = L"home_addBtn";
-			this->home_addBtn->Size = System::Drawing::Size(130, 23);
+			this->home_addBtn->Size = System::Drawing::Size(162, 31);
 			this->home_addBtn->TabIndex = 0;
 			this->home_addBtn->Text = L"Add New Record";
 			this->home_addBtn->UseVisualStyleBackColor = true;
@@ -86,46 +89,57 @@ namespace School {
 			// home_titleLbl
 			// 
 			this->home_titleLbl->AutoSize = true;
-			this->home_titleLbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->home_titleLbl->Location = System::Drawing::Point(133, 94);
+			this->home_titleLbl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 32));
+			this->home_titleLbl->Location = System::Drawing::Point(67, 80);
 			this->home_titleLbl->Name = L"home_titleLbl";
-			this->home_titleLbl->Size = System::Drawing::Size(424, 37);
+			this->home_titleLbl->Size = System::Drawing::Size(566, 52);
 			this->home_titleLbl->TabIndex = 1;
 			this->home_titleLbl->Text = L"School Management System";
 			// 
 			// home_viewBtn
 			// 
-			this->home_viewBtn->Location = System::Drawing::Point(292, 203);
+			this->home_viewBtn->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->home_viewBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->home_viewBtn->Location = System::Drawing::Point(283, 190);
 			this->home_viewBtn->Name = L"home_viewBtn";
-			this->home_viewBtn->Size = System::Drawing::Size(130, 23);
+			this->home_viewBtn->Size = System::Drawing::Size(162, 31);
 			this->home_viewBtn->TabIndex = 2;
 			this->home_viewBtn->Text = L"View Students List";
 			this->home_viewBtn->UseVisualStyleBackColor = true;
 			// 
 			// home_searchBtn
 			// 
-			this->home_searchBtn->Location = System::Drawing::Point(292, 232);
+			this->home_searchBtn->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->home_searchBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->home_searchBtn->Location = System::Drawing::Point(283, 226);
 			this->home_searchBtn->Name = L"home_searchBtn";
-			this->home_searchBtn->Size = System::Drawing::Size(130, 23);
+			this->home_searchBtn->Size = System::Drawing::Size(162, 31);
 			this->home_searchBtn->TabIndex = 3;
 			this->home_searchBtn->Text = L"Search Student";
 			this->home_searchBtn->UseVisualStyleBackColor = true;
 			// 
 			// home_displayBtn
 			// 
-			this->home_displayBtn->Location = System::Drawing::Point(292, 261);
+			this->home_displayBtn->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->home_displayBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->home_displayBtn->Location = System::Drawing::Point(283, 262);
 			this->home_displayBtn->Name = L"home_displayBtn";
-			this->home_displayBtn->Size = System::Drawing::Size(130, 23);
+			this->home_displayBtn->Size = System::Drawing::Size(162, 31);
 			this->home_displayBtn->TabIndex = 4;
 			this->home_displayBtn->Text = L"Display Class Results";
 			this->home_displayBtn->UseVisualStyleBackColor = true;
 			// 
 			// home_exitBtn
 			// 
-			this->home_exitBtn->Location = System::Drawing::Point(292, 290);
+			this->home_exitBtn->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->home_exitBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->home_exitBtn->Location = System::Drawing::Point(283, 298);
 			this->home_exitBtn->Name = L"home_exitBtn";
-			this->home_exitBtn->Size = System::Drawing::Size(130, 23);
+			this->home_exitBtn->Size = System::Drawing::Size(162, 31);
 			this->home_exitBtn->TabIndex = 5;
 			this->home_exitBtn->Text = L"Exit";
 			this->home_exitBtn->UseVisualStyleBackColor = true;
@@ -160,7 +174,6 @@ namespace School {
 
 	public: bool switchToAdd = false;
 	private: System::Void home_addBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-		//MessageBox::Show("Add", "Log", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		this->Close();
 		this->switchToAdd = true;
 	}
