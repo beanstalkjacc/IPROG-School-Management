@@ -1,3 +1,4 @@
 ﻿  Driver.cpp
+D:\Documents\GitHub\IPROG-School-Management\Add.h(510,25): warning C4129: 's': unrecognized character escape sequence
   Driver.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   School.vcxproj -> D:\Documents\GitHub\IPROG-School-Management\x64\Debug\School.exe
