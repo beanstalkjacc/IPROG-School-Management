@@ -38,3 +38,6 @@
 .vs/School/v17/Browse.VC.db-shm
 .vs/School/v17/Browse.VC.opendb
 .vs/School/v17/ipch/AutoPCH/aa4016a98d1d1f25/DRIVER.ipch
+/.vs/School
+School/x64/Debug/vc143.pdb
+x64/Debug/School.pdb
