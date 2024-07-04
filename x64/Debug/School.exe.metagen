@@ -1,5 +1,6 @@
   School.Add.resources - Embedded, ContainedInManifestFile, 
   School.Home.resources - Embedded, ContainedInManifestFile, 
+  School.Records.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly School, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
@@ -20,8 +21,14 @@ Class School.Home: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Boolean switchToAdd : Public
+    Boolean switchToList : Public
 Class School.Add: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Boolean addBackToHome : Public
+Class School.Records: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Boolean recordsBackToHome : Public

@@ -131,6 +131,9 @@
     <ClInclude Include="Home.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Records.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Add.resx">
@@ -138,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Records.resx">
+      <DependentUpon>Records.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -26,5 +26,8 @@
     <ClInclude Include="Add.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Records.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
