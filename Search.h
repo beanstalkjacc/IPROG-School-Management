@@ -906,6 +906,7 @@ namespace School {
 			this->update_saveBtn->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->update_saveBtn->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->update_saveBtn->UseVisualStyleBackColor = false;
+			this->update_saveBtn->Visible = false;
 			this->update_saveBtn->Click += gcnew System::EventHandler(this, &Search::update_saveBtn_Click);
 			// 
 			// Search
@@ -959,6 +960,14 @@ namespace School {
 		this->search_id2Txt->Text = "••••••";
 		this->search_id2Txt->ForeColor = System::Drawing::Color::Silver;
 	}
+	private: System::Void resetUpdateFields() {
+		this->update_fnameTxt->ForeColor = System::Drawing::Color::Black;
+		this->update_mnameTxt->ForeColor = System::Drawing::Color::Black;
+		this->update_lnameTxt->ForeColor = System::Drawing::Color::Black;
+		this->update_id1Txt->ForeColor = System::Drawing::Color::Black;
+		this->update_id2Txt->ForeColor = System::Drawing::Color::Black;
+		this->update_saveBtn->Visible = false;
+	}
 	private: System::Boolean isAllFieldsEmpty() {
 		if (!this->search_fnameTxt->Text->Equals("First Name")) return false;
 		if (!this->search_mnameTxt->Text->Equals("Middle Name")) return false;
@@ -966,6 +975,15 @@ namespace School {
 
 		if (!this->search_id1Txt->Text->Equals("•••") && !this->search_id1Txt->Text->Equals("••••••"))
 			return false;
+
+		return true;
+	}
+	private: System::Boolean checkEmpty() {
+		if (!this->update_fnameTxt->Text->Equals("First Name")) return false;
+		if (!this->update_mnameTxt->Text->Equals("Middle Name")) return false;
+		if (!this->update_lnameTxt->Text->Equals("Last Name")) return false;
+		if (!this->update_id1Txt->Text->Equals("•••")) return false;
+		if (!this->update_id2Txt->Text->Equals("••••••")) return false;
 
 		return true;
 	}
@@ -1003,6 +1021,11 @@ namespace School {
 	private: System::Void displayStudent() {
 		
 	}
+	//TODO: Update student info in db
+	private: System::Void updateStudent() {
+		MessageBox::Show("Student Record Updated Successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+	
 
 
 #pragma endregion
@@ -1049,8 +1072,17 @@ namespace School {
 	private: System::Void update_backBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->search_UpdatePnl->Visible = false;
 		this->search_SearchPnl->Visible = true;
+		resetUpdateFields();
 	}
 	private: System::Void update_saveBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (checkEmpty()) {
+			MessageBox::Show("A Field is Empty", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		} else {
+			updateStudent();
+			this->search_UpdatePnl->Visible = false;
+			this->search_SearchPnl->Visible = true;
+			resetUpdateFields();
+		}
 	}
 #pragma endregion
 
@@ -1129,10 +1161,8 @@ namespace School {
 
 	// Update Panel
 	private: System::Void update_fnameTxt_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (this->update_fnameTxt->Text->Equals("First Name")) {
-			this->update_fnameTxt->ForeColor = System::Drawing::Color::Black;
-			this->update_fnameTxt->Text = "";
-		}
+		this->update_fnameTxt->Text = "";
+		this->update_fnameTxt->ForeColor = System::Drawing::Color::Black;
 	}
 	private: System::Void update_fnameTxt_Leave(System::Object^ sender, System::EventArgs^ e) {
 		if (this->update_fnameTxt->Text->Equals("") || this->update_fnameTxt->Text->Equals("First Name")) {
@@ -1143,10 +1173,8 @@ namespace School {
 		} else update_saveBtn->Visible = true;
 	}
 	private: System::Void update_mnameTxt_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (this->update_mnameTxt->Text->Equals("Middle Name")) {
-			this->update_mnameTxt->ForeColor = System::Drawing::Color::Black;
-			this->update_mnameTxt->Text = "";
-		}
+		this->update_mnameTxt->Text = "";
+		this->update_mnameTxt->ForeColor = System::Drawing::Color::Black;
 	}
 	private: System::Void update_mnameTxt_Leave(System::Object^ sender, System::EventArgs^ e) {
 		if (this->update_mnameTxt->Text->Equals("") || this->update_mnameTxt->Text->Equals("Middle Name")) {
@@ -1157,10 +1185,8 @@ namespace School {
 		} else update_saveBtn->Visible = true;
 	}
 	private: System::Void update_lnameTxt_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (this->update_lnameTxt->Text->Equals("Last Name")) {
-			this->update_lnameTxt->ForeColor = System::Drawing::Color::Black;
-			this->update_lnameTxt->Text = "";
-		}
+		this->update_lnameTxt->Text = "";
+		this->update_lnameTxt->ForeColor = System::Drawing::Color::Black;
 	}
 	private: System::Void update_lnameTxt_Leave(System::Object^ sender, System::EventArgs^ e) {
 		if (this->update_lnameTxt->Text->Equals("") || this->update_lnameTxt->Text->Equals("Last Name")) {
@@ -1171,10 +1197,8 @@ namespace School {
 		} else update_saveBtn->Visible = true;
 	}
 	private: System::Void update_id1Txt_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (this->update_id1Txt->Text->Equals("•••")) {
-			this->update_id1Txt->ForeColor = System::Drawing::Color::Black;
-			this->update_id1Txt->Text = "";
-		}
+		this->update_id1Txt->Text = "";
+		this->update_id1Txt->ForeColor = System::Drawing::Color::Black;
 	}
 	private: System::Void update_id1Txt_Leave(System::Object^ sender, System::EventArgs^ e) {
 		if (this->update_id1Txt->Text->Equals("") || this->update_id1Txt->Text->Equals("•••")) {
@@ -1187,10 +1211,8 @@ namespace School {
 		}
 	}
 	private: System::Void update_id2Txt_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (this->update_id2Txt->Text->Equals("••••••")) {
-			this->update_id2Txt->ForeColor = System::Drawing::Color::Black;
-			this->update_id2Txt->Text = "";
-		}
+		this->update_id2Txt->Text = "";
+		this->update_id2Txt->ForeColor = System::Drawing::Color::Black;
 	}
 	private: System::Void update_id2Txt_Leave(System::Object^ sender, System::EventArgs^ e) {
 		if (this->update_id2Txt->Text->Equals("") || this->update_id2Txt->Text->Equals("••••••")) {
