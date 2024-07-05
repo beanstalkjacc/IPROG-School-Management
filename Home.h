@@ -232,7 +232,7 @@ namespace School {
 
 	public: bool switchToList = false;
 	private: System::Void home_viewBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Close();
+		//this->Close();
 		this->switchToList = true;
 	}
 };

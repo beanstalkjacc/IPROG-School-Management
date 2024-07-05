@@ -21,7 +21,7 @@ int main(array<String^>^ args) {
 		School::Records recordsForm;
 		Application::Run(% recordsForm);
 
-		if (recordsForm.recordsBackToHome) { goto HOME; }
+		//if (recordsForm.recordsBackToHome) { goto HOME; }
 	}
 
 	Application::Exit();
