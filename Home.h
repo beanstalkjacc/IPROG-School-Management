@@ -119,7 +119,7 @@ namespace School {
 			this->home_viewBtn->TabIndex = 2;
 			this->home_viewBtn->Text = L"View All Records";
 			this->home_viewBtn->UseVisualStyleBackColor = false;
-			this->home_viewBtn->Click += gcnew System::EventHandler(this, &Home::home_viewBtn_Click);
+			this->home_viewBtn->Click += gcnew System::EventHandler(this, &Home::home_recordsBtn_Click);
 			// 
 			// home_searchBtn
 			// 
@@ -139,6 +139,7 @@ namespace School {
 			this->home_searchBtn->TabIndex = 3;
 			this->home_searchBtn->Text = L"Search Student";
 			this->home_searchBtn->UseVisualStyleBackColor = false;
+			this->home_searchBtn->Click += gcnew System::EventHandler(this, &Home::home_searchBtn_Click);
 			// 
 			// home_displayBtn
 			// 
@@ -230,10 +231,17 @@ namespace School {
 		this->switchToAdd = true;
 	}
 
-	public: bool switchToList = false;
-	private: System::Void home_viewBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-		//this->Close();
-		this->switchToList = true;
+	public: bool switchToRecords = false;
+	private: System::Void home_recordsBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+		this->switchToRecords = true;
 	}
+
+	public: bool switchToSearch = false;
+	private: System::Void home_searchBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+		this->switchToSearch = true;
+	}
+
 };
 }
