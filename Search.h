@@ -77,7 +77,7 @@ namespace School {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -408,7 +408,6 @@ namespace School {
 			this->Controls->Add(this->search_SearchPnl);
 			this->DoubleBuffered = true;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Search";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"School Management System";
@@ -489,12 +488,13 @@ namespace School {
 			this->search_fnameTxt->ForeColor = System::Drawing::Color::Silver;
 			this->search_fnameTxt->Text = "First Name";
 			this->search_clearBtn->Visible = false;
-		} else { this->search_clearBtn->Visible = true; }
+		}
+		else { this->search_clearBtn->Visible = true; }
 	}
 #pragma endregion
 
 	private: System::Void search_updateBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+
 	}
-};
+	};
 }

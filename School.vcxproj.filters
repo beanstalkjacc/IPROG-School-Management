@@ -33,9 +33,4 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Search.resx">
-      <Filter>Header Files</Filter>
-    </EmbeddedResource>
-  </ItemGroup>
 </Project>

@@ -134,7 +134,9 @@
     <ClInclude Include="Records.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Search.h" />
+    <ClInclude Include="Search.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Add.resx">
@@ -146,7 +148,9 @@
     <EmbeddedResource Include="Records.resx">
       <DependentUpon>Records.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Search.resx" />
+    <EmbeddedResource Include="Search.resx">
+      <DependentUpon>Search.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
