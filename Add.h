@@ -328,7 +328,7 @@ namespace School {
 			this->add_subCbx->Location = System::Drawing::Point(4, 4);
 			this->add_subCbx->Margin = System::Windows::Forms::Padding(4);
 			this->add_subCbx->Name = L"add_subCbx";
-			this->add_subCbx->Size = System::Drawing::Size(141, 31);
+			this->add_subCbx->Size = System::Drawing::Size(155, 31);
 			this->add_subCbx->Sorted = true;
 			this->add_subCbx->TabIndex = 5;
 			// 
@@ -340,7 +340,7 @@ namespace School {
 			this->add_actGrade->Location = System::Drawing::Point(4, 43);
 			this->add_actGrade->Margin = System::Windows::Forms::Padding(4);
 			this->add_actGrade->Name = L"add_actGrade";
-			this->add_actGrade->Size = System::Drawing::Size(141, 32);
+			this->add_actGrade->Size = System::Drawing::Size(155, 32);
 			this->add_actGrade->TabIndex = 3;
 			this->add_actGrade->Text = L"0.00";
 			this->add_actGrade->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -355,7 +355,7 @@ namespace School {
 			this->add_midGrade->Location = System::Drawing::Point(4, 83);
 			this->add_midGrade->Margin = System::Windows::Forms::Padding(4);
 			this->add_midGrade->Name = L"add_midGrade";
-			this->add_midGrade->Size = System::Drawing::Size(141, 32);
+			this->add_midGrade->Size = System::Drawing::Size(155, 32);
 			this->add_midGrade->TabIndex = 0;
 			this->add_midGrade->Text = L"0.00";
 			this->add_midGrade->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -370,7 +370,7 @@ namespace School {
 			this->add_finalsGrade->Location = System::Drawing::Point(4, 123);
 			this->add_finalsGrade->Margin = System::Windows::Forms::Padding(4);
 			this->add_finalsGrade->Name = L"add_finalsGrade";
-			this->add_finalsGrade->Size = System::Drawing::Size(141, 32);
+			this->add_finalsGrade->Size = System::Drawing::Size(155, 32);
 			this->add_finalsGrade->TabIndex = 1;
 			this->add_finalsGrade->Text = L"0.00";
 			this->add_finalsGrade->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -385,7 +385,7 @@ namespace School {
 			this->add_recitGrade->Location = System::Drawing::Point(4, 163);
 			this->add_recitGrade->Margin = System::Windows::Forms::Padding(4);
 			this->add_recitGrade->Name = L"add_recitGrade";
-			this->add_recitGrade->Size = System::Drawing::Size(141, 32);
+			this->add_recitGrade->Size = System::Drawing::Size(155, 32);
 			this->add_recitGrade->TabIndex = 2;
 			this->add_recitGrade->Text = L"0.00";
 			this->add_recitGrade->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -400,7 +400,7 @@ namespace School {
 			this->add_attnGrade->Location = System::Drawing::Point(4, 203);
 			this->add_attnGrade->Margin = System::Windows::Forms::Padding(4);
 			this->add_attnGrade->Name = L"add_attnGrade";
-			this->add_attnGrade->Size = System::Drawing::Size(141, 32);
+			this->add_attnGrade->Size = System::Drawing::Size(155, 32);
 			this->add_attnGrade->TabIndex = 4;
 			this->add_attnGrade->Text = L"0.00";
 			this->add_attnGrade->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -496,7 +496,7 @@ namespace School {
 			this->add_studentsDataGrid->AllowUserToAddRows = false;
 			this->add_studentsDataGrid->AllowUserToDeleteRows = false;
 			this->add_studentsDataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->add_studentsDataGrid->Location = System::Drawing::Point(505, 365);
+			this->add_studentsDataGrid->Location = System::Drawing::Point(515, 365);
 			this->add_studentsDataGrid->Margin = System::Windows::Forms::Padding(4);
 			this->add_studentsDataGrid->Name = L"add_studentsDataGrid";
 			this->add_studentsDataGrid->ReadOnly = true;
@@ -617,8 +617,14 @@ namespace School {
 	}
 
 	private: System::String^ printData() {
-		String^ name = "[NAME] " + this->add_fnameTxt->Text + " " + this->add_mnameTxt->Text + " " +
+		String^ name = "";
+
+		if(this->add_mnameTxt->Text->Equals("Middle Name"))
+			name = "[NAME] " + this->add_fnameTxt->Text + " " + this->add_lnameTxt->Text;
+		else
+			name = "[NAME] " + this->add_fnameTxt->Text + " " + this->add_mnameTxt->Text + " " +
 			this->add_lnameTxt->Text;
+
 		String^ id = "\n[ID] " + this->add_id1Txt->Text + "-" + this->add_id2Txt->Text;
 		String^ grades = "\n[GRADES]\n\tSubject: " + this->add_subCbx->Text + "\n\tActivities: " +
 			this->add_actGrade->Text + "\n\tMidterms: " + this->add_midGrade->Text + "\n\tFinals: " +
@@ -637,7 +643,6 @@ namespace School {
 
 	private: System::Boolean checkEmpty() {
 		if (this->add_fnameTxt->Text->Equals("First Name") ||
-			this->add_mnameTxt->Text->Equals("Middle Name") ||
 			this->add_lnameTxt->Text->Equals("Last Name") ||
 			this->add_id1Txt->Text->Equals("•••") ||
 			this->add_id2Txt->Text->Equals("••••••") ||
@@ -647,7 +652,7 @@ namespace School {
 			this->add_finalsGrade->ForeColor == System::Drawing::Color::Silver ||
 			this->add_recitGrade->ForeColor == System::Drawing::Color::Silver ||
 			this->add_attnGrade->ForeColor == System::Drawing::Color::Silver) {
-			MessageBox::Show("Field is Empty", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			MessageBox::Show("A Field is Empty", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 			return true;
 		} else {
 			return false;
@@ -808,6 +813,5 @@ namespace School {
 		}
 	}
 #pragma endregion
-
-};
+	};
 }

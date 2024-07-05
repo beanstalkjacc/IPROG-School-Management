@@ -121,7 +121,7 @@
   <data name="add_addBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAZ1JREFUSEvdlLtOAkEYRgkIjwZWCob4St5RKzUBC0XRZ7DwBTR2irdaKwu0dj0f
+        DgAACw4BQL7hQQAAAZ1JREFUSEvdlLtOAkEYRgkIjwZWCob4St5RKzUBC0XRZ7DwBTR2irdaKwu0dj0f
         fri77q4LUQs9yQnMN/8wZG6F/00QBBWcx0Ps44vVd2Xqq7h8Mhg4h/coHrCHa1bflYk7bHhYPhQXcVkj
         4QyrWHT3B8qwhucoljBRl4CilWF5EOzglONMqCnhogbo03E6FGhZRMvR2DBm/X1oUHcUhw5tqNZcy1Jy
         HIN8G7fcjKExqOW6xbLjEEKdCFF1lIC+U+lmAvq0J6LpKIRQJ+MRMzeKvrwJtPE6XV1HIYTX2HMzFfq/
@@ -134,7 +134,7 @@
   <data name="add_backBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAedJREFUSEu1ls1OU0EYhusNACsXVhcmgnIt4iUQl2CUEDdyCyxxhT87l0TLn1fh
+        DgAACw4BQL7hQQAAAedJREFUSEu1ls1OU0EYhusNACsXVhcmgnIt4iUQl2CUEDdyCyxxhT87l0TLn1fh
         XuNViLAyGDI+z5xvpHNOW4rYJ3mTmff7aTvnzEx7k0gp3UPP0Gf0Df0MOdYzdjfSp8ci9Br9Qldxjj6g
         +1E+GRJX0CkSi/fQKnqE5kKO9YyZI9asRJvRkLCBLsyGT+hBhMZiDhpYANZuRKiGwJNIUK/CrsC/pWJa
         YU3UqvqXYPgwz5BMau5z2QmrA7EtJC5XP+wceJ9tliWsCvzSvLAZoQp88/ZzRkpvium3/418WJ01x2s3
@@ -148,7 +148,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABOIAAAMgCAYAAACOAc13AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAA/7JJREFUeF7snQWgFNUXxmf20SGgoBhgIB0GKqB0d0o3SEt3NwqIYLeolIgo/jFQ
+        vwAADr8BOAVTJAAA/7JJREFUeF7snQWgFNUXxmf20SGgoBhgIB0GKqB0d0o3SEt3NwqIYLeolIgo/jFQ
         QSSURqV53d2dfP/73d15LM+lFPAB54fH2Z24986d2JnvnXOPAUEQBEEQBEEQBEEQBEEQrjsixAmCIAiC
         IAiCIAiCIAjCDUCEOEEQBEEQBEEQBEEQBEG4AYgQJwiCIAiCIAiCIAiCIAg3ABHiBEEQBEEQBEEQBEEQ
         BOEGIEKcIAiCIAiCIAiCIAiCINwARIgTBEEQBEEQBEEQBEEQhBuACHGCIAiCIAiCIAiCIAiCcAMQIU4Q
