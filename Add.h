@@ -582,6 +582,7 @@ namespace School {
 			this->Name = L"Add";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"School Management System";
+			this->Load += gcnew System::EventHandler(this, &Add::Add_Load);
 			this->add_nameFlwPnl->ResumeLayout(false);
 			this->add_nameFlwPnl->PerformLayout();
 			this->add_idFlwPnl->ResumeLayout(false);
@@ -688,6 +689,9 @@ namespace School {
 				}
 			}
 		}
+	}
+	// TODO: Load db, display student list
+	private: System::Void Add_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 #pragma endregion
 

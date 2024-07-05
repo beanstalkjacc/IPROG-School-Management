@@ -1017,9 +1017,13 @@ namespace School {
 
 		return true;
 	}
-	//TODO: Display data on datagrid
-	private: System::Void displayStudent() {
+	//TODO: Display search results in datagrid
+	private: System::Void displaySearch() {
 		
+	}
+	//TODO: Display student data in datagrid
+	private: System::Void displayStudentDetails () {
+
 	}
 	//TODO: Update student info in db
 	private: System::Void updateStudent() {
@@ -1049,7 +1053,7 @@ namespace School {
 			else if (isUserExist()) {
 				this->search_updateBtn->Visible = true;
 				this->search_clearBtn->Visible = true;
-				displayStudent();
+				displaySearch();
 			} else {
 				MessageBox::Show("Record does not exist", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				clearSearchFields();
@@ -1062,6 +1066,7 @@ namespace School {
 		this->search_updateBtn->Visible = false;
 	}
 	private: System::Void search_updateBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		displayStudentDetails();
 		clearSearchFields();
 		this->search_SearchPnl->Visible = false;
 		this->search_clearBtn->Visible = false;

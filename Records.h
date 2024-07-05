@@ -34,8 +34,10 @@ namespace School {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::DataGridView^ records_DataGrid;
+	protected:
 
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+
 	private: System::Windows::Forms::Label^ records_dividerLbl;
 	private: System::Windows::Forms::Label^ records_TitleLbl;
 	private: System::Windows::Forms::Button^ records_backBtn;
@@ -59,26 +61,26 @@ namespace School {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Records::typeid));
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->records_DataGrid = (gcnew System::Windows::Forms::DataGridView());
 			this->records_dividerLbl = (gcnew System::Windows::Forms::Label());
 			this->records_TitleLbl = (gcnew System::Windows::Forms::Label());
 			this->records_backBtn = (gcnew System::Windows::Forms::Button());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->records_DataGrid))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// dataGridView1
+			// records_DataGrid
 			// 
-			this->dataGridView1->AllowUserToAddRows = false;
-			this->dataGridView1->AllowUserToDeleteRows = false;
-			this->dataGridView1->AllowUserToOrderColumns = true;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(132, 278);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->ReadOnly = true;
-			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(968, 357);
-			this->dataGridView1->TabIndex = 9;
+			this->records_DataGrid->AllowUserToAddRows = false;
+			this->records_DataGrid->AllowUserToDeleteRows = false;
+			this->records_DataGrid->AllowUserToOrderColumns = true;
+			this->records_DataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->records_DataGrid->Location = System::Drawing::Point(132, 278);
+			this->records_DataGrid->Name = L"records_DataGrid";
+			this->records_DataGrid->ReadOnly = true;
+			this->records_DataGrid->RowHeadersWidth = 51;
+			this->records_DataGrid->RowTemplate->Height = 24;
+			this->records_DataGrid->Size = System::Drawing::Size(968, 357);
+			this->records_DataGrid->TabIndex = 9;
 			// 
 			// records_dividerLbl
 			// 
@@ -137,14 +139,15 @@ namespace School {
 			this->Controls->Add(this->records_dividerLbl);
 			this->Controls->Add(this->records_TitleLbl);
 			this->Controls->Add(this->records_backBtn);
-			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->records_DataGrid);
 			this->DoubleBuffered = true;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Records";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"School Management System";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->Load += gcnew System::EventHandler(this, &Records::Records_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->records_DataGrid))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -158,6 +161,8 @@ namespace School {
 		this->recordsBackToHome = true;
 	}
 #pragma endregion
-
-	};
+	//TODO: Load db, display all student records for all subjects
+	private: System::Void Records_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

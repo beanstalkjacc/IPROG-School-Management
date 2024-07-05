@@ -4,3 +4,4 @@ D:\Documents\GitHub\IPROG-School-Management\School\x64\Debug\School.Home.resourc
 D:\Documents\GitHub\IPROG-School-Management\School\x64\Debug\School.Records.resources
 D:\Documents\GitHub\IPROG-School-Management\School\x64\Debug\School.Search.resources
 D:\Documents\GitHub\IPROG-School-Management\School\x64\Debug\School.vcxproj.GenerateResource.cache
+D:\Documents\GitHub\IPROG-School-Management\School\x64\Debug\School.Results.resources

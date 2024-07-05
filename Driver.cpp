@@ -2,6 +2,7 @@
 #include "Add.h"
 #include "Records.h"
 #include "Search.h"
+#include "Results.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -28,6 +29,11 @@ int main(array<String^>^ args) {
 		Application::Run(% searchForm);
 
 		if (searchForm.searchBackToHome) { goto HOME; }
+	} else if (homeForm.switchToResults) {
+		School::Results resultsForm;
+		Application::Run(% resultsForm);
+
+		if (resultsForm.resultsBackToHome) { goto HOME; }
 	}
 
 	Application::Exit();

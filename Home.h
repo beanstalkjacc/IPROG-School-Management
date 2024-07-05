@@ -159,6 +159,7 @@ namespace School {
 			this->home_displayBtn->TabIndex = 4;
 			this->home_displayBtn->Text = L"Display Class Results";
 			this->home_displayBtn->UseVisualStyleBackColor = false;
+			this->home_displayBtn->Click += gcnew System::EventHandler(this, &Home::home_displayBtn_Click);
 			// 
 			// home_exitBtn
 			// 
@@ -242,6 +243,11 @@ namespace School {
 		this->Close();
 		this->switchToSearch = true;
 	}
-
+	
+	public: bool switchToResults = false;
+	private: System::Void home_displayBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+		this->switchToResults = true;
+	}
 };
 }

@@ -1,6 +1,7 @@
   School.Add.resources - Embedded, ContainedInManifestFile, 
   School.Home.resources - Embedded, ContainedInManifestFile, 
   School.Records.resources - Embedded, ContainedInManifestFile, 
+  School.Results.resources - Embedded, ContainedInManifestFile, 
   School.Search.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly School, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
@@ -24,6 +25,7 @@ Class School.Home: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Boolean switchToAdd : Public
     Boolean switchToRecords : Public
     Boolean switchToSearch : Public
+    Boolean switchToResults : Public
 Class School.Add: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -39,3 +41,8 @@ Class School.Search: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Boolean searchBackToHome : Public
+Class School.Results: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Boolean resultsBackToHome : Public

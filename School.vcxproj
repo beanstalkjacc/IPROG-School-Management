@@ -134,6 +134,9 @@
     <ClInclude Include="Records.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Results.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Search.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -147,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Records.resx">
       <DependentUpon>Records.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Results.resx">
+      <DependentUpon>Results.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Search.resx">
       <DependentUpon>Search.h</DependentUpon>
