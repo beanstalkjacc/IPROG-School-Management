@@ -73,6 +73,7 @@ namespace School {
 			this->records_DataGrid->AllowUserToAddRows = false;
 			this->records_DataGrid->AllowUserToDeleteRows = false;
 			this->records_DataGrid->AllowUserToOrderColumns = true;
+			this->records_DataGrid->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::AllCells;
 			this->records_DataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->records_DataGrid->Location = System::Drawing::Point(132, 278);
 			this->records_DataGrid->Name = L"records_DataGrid";
@@ -143,6 +144,7 @@ namespace School {
 			this->DoubleBuffered = true;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
 			this->Name = L"Records";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"School Management System";
@@ -163,6 +165,16 @@ namespace School {
 #pragma endregion
 	//TODO: Load db, display all student records for all subjects
 	private: System::Void Records_Load(System::Object^ sender, System::EventArgs^ e) {
+		String^ connString = "Server=localhost;database='group3_schooldb';username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		conn->Open();
+		String^ adpString = "SELECT * FROM records_table";
+		MySqlDataAdapter^ adapter = gcnew MySqlDataAdapter(adpString, conn);
+		DataTable^ dt = gcnew DataTable();
+		adapter->Fill(dt);
+		this->records_DataGrid->DataSource = dt;
+		conn->Close();
 	}
 };
 }

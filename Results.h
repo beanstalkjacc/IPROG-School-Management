@@ -126,6 +126,7 @@ namespace School {
 			this->results_DataGrid->AllowUserToAddRows = false;
 			this->results_DataGrid->AllowUserToDeleteRows = false;
 			this->results_DataGrid->AllowUserToOrderColumns = true;
+			this->results_DataGrid->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::AllCells;
 			this->results_DataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->results_DataGrid->Location = System::Drawing::Point(129, 318);
 			this->results_DataGrid->Name = L"results_DataGrid";
@@ -204,6 +205,7 @@ namespace School {
 			this->DoubleBuffered = true;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
 			this->Name = L"Results";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"School Management System";
@@ -214,6 +216,25 @@ namespace School {
 
 		}
 #pragma endregion
+
+#pragma region SQL Queries
+	private: System::Void loadData(System::String^ subject) {
+		String^ connString = "Server=localhost;database='group3_schooldb';username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		conn->Open();
+		String^ adpString = "SELECT ID_NUMBER, FULL_NAME, ACTIVITIES, MIDTERMS, FINALS, RECITATION, ATTENDANCE, AVERAGE, GWA " + 
+			"FROM records_table WHERE SUBJECT_CODE = '" + subject + "'";
+		MySqlDataAdapter^ adapter = gcnew MySqlDataAdapter(adpString, conn);
+		DataTable^ dt = gcnew DataTable();
+		adapter->Fill(dt);
+		this->results_DataGrid->DataSource = dt;
+		if (dt->Rows->Count == 0) {	MessageBox::Show("No Records Found", "Information", MessageBoxButtons::OK, MessageBoxIcon::Information); }
+		conn->Close();
+	}
+#pragma endregion
+
+#pragma region UI Actions
 	public: bool resultsBackToHome = false;
 	private: System::Void results_backBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
@@ -222,9 +243,12 @@ namespace School {
 	//TODO: Load db, default should display DBMGTLAB grades of all students
 	private: System::Void Results_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->results_subCbx->Text = "DBMGTLAB";
+		loadData("DBMGTLAB");
 	}
 	//TODO: Load db according to selected subject
 	private: System::Void results_loadBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		loadData(this->results_subCbx->Text);
 	}
+#pragma endregion
 };
 }

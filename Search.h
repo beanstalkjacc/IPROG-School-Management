@@ -85,6 +85,9 @@ namespace School {
 	private: System::Windows::Forms::Label^ update_midLbl;
 	private: System::Windows::Forms::Label^ update_actLbl;
 	private: System::Windows::Forms::DataGridView^ update_studentDataGrid;
+	private: System::Windows::Forms::Button^ search_deleteBtn;
+	private: System::Windows::Forms::Button^ update_deleteBtn;
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -149,6 +152,8 @@ namespace School {
 			this->update_dividerLbl = (gcnew System::Windows::Forms::Label());
 			this->update_TitleLbl = (gcnew System::Windows::Forms::Label());
 			this->update_saveBtn = (gcnew System::Windows::Forms::Button());
+			this->search_deleteBtn = (gcnew System::Windows::Forms::Button());
+			this->update_deleteBtn = (gcnew System::Windows::Forms::Button());
 			this->search_nameFlwPnl->SuspendLayout();
 			this->search_idFlwPnl->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_studentDataGrid))->BeginInit();
@@ -438,6 +443,7 @@ namespace School {
 			// search_SearchPnl
 			// 
 			this->search_SearchPnl->BackColor = System::Drawing::Color::Transparent;
+			this->search_SearchPnl->Controls->Add(this->search_deleteBtn);
 			this->search_SearchPnl->Controls->Add(this->search_backBtn);
 			this->search_SearchPnl->Controls->Add(this->search_btnFlwPnl);
 			this->search_SearchPnl->Controls->Add(this->search_studentDataGrid);
@@ -456,6 +462,7 @@ namespace School {
 			// search_UpdatePnl
 			// 
 			this->search_UpdatePnl->BackColor = System::Drawing::Color::Transparent;
+			this->search_UpdatePnl->Controls->Add(this->update_deleteBtn);
 			this->search_UpdatePnl->Controls->Add(this->update_nameLbl);
 			this->search_UpdatePnl->Controls->Add(this->update_nameFlwPnl);
 			this->search_UpdatePnl->Controls->Add(this->update_idLbl);
@@ -473,7 +480,7 @@ namespace School {
 			this->search_UpdatePnl->Controls->Add(this->update_dividerLbl);
 			this->search_UpdatePnl->Controls->Add(this->update_TitleLbl);
 			this->search_UpdatePnl->Controls->Add(this->update_saveBtn);
-			this->search_UpdatePnl->Location = System::Drawing::Point(94, 150);
+			this->search_UpdatePnl->Location = System::Drawing::Point(95, 678);
 			this->search_UpdatePnl->Name = L"search_UpdatePnl";
 			this->search_UpdatePnl->Size = System::Drawing::Size(1043, 512);
 			this->search_UpdatePnl->TabIndex = 41;
@@ -833,13 +840,14 @@ namespace School {
 			// 
 			this->update_studentDataGrid->AllowUserToAddRows = false;
 			this->update_studentDataGrid->AllowUserToDeleteRows = false;
+			this->update_studentDataGrid->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::AllCells;
 			this->update_studentDataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->update_studentDataGrid->Location = System::Drawing::Point(421, 205);
 			this->update_studentDataGrid->Margin = System::Windows::Forms::Padding(4);
 			this->update_studentDataGrid->Name = L"update_studentDataGrid";
 			this->update_studentDataGrid->ReadOnly = true;
 			this->update_studentDataGrid->RowHeadersWidth = 51;
-			this->update_studentDataGrid->Size = System::Drawing::Size(476, 270);
+			this->update_studentDataGrid->Size = System::Drawing::Size(595, 249);
 			this->update_studentDataGrid->TabIndex = 48;
 			// 
 			// update_backBtn
@@ -909,6 +917,47 @@ namespace School {
 			this->update_saveBtn->Visible = false;
 			this->update_saveBtn->Click += gcnew System::EventHandler(this, &Search::update_saveBtn_Click);
 			// 
+			// search_deleteBtn
+			// 
+			this->search_deleteBtn->BackColor = System::Drawing::Color::Firebrick;
+			this->search_deleteBtn->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->search_deleteBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			this->search_deleteBtn->ForeColor = System::Drawing::Color::White;
+			this->search_deleteBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"search_deleteBtn.Image")));
+			this->search_deleteBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->search_deleteBtn->Location = System::Drawing::Point(736, 463);
+			this->search_deleteBtn->Margin = System::Windows::Forms::Padding(4);
+			this->search_deleteBtn->Name = L"search_deleteBtn";
+			this->search_deleteBtn->Padding = System::Windows::Forms::Padding(15, 0, 0, 0);
+			this->search_deleteBtn->Size = System::Drawing::Size(150, 49);
+			this->search_deleteBtn->TabIndex = 40;
+			this->search_deleteBtn->Text = L" Delete";
+			this->search_deleteBtn->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->search_deleteBtn->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
+			this->search_deleteBtn->UseVisualStyleBackColor = false;
+			this->search_deleteBtn->Visible = false;
+			this->search_deleteBtn->Click += gcnew System::EventHandler(this, &Search::search_deleteBtn_Click);
+			// 
+			// update_deleteBtn
+			// 
+			this->update_deleteBtn->BackColor = System::Drawing::Color::Firebrick;
+			this->update_deleteBtn->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->update_deleteBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			this->update_deleteBtn->ForeColor = System::Drawing::Color::White;
+			this->update_deleteBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"update_deleteBtn.Image")));
+			this->update_deleteBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->update_deleteBtn->Location = System::Drawing::Point(756, 463);
+			this->update_deleteBtn->Margin = System::Windows::Forms::Padding(4);
+			this->update_deleteBtn->Name = L"update_deleteBtn";
+			this->update_deleteBtn->Padding = System::Windows::Forms::Padding(15, 0, 0, 0);
+			this->update_deleteBtn->Size = System::Drawing::Size(150, 49);
+			this->update_deleteBtn->TabIndex = 50;
+			this->update_deleteBtn->Text = L" Delete";
+			this->update_deleteBtn->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->update_deleteBtn->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
+			this->update_deleteBtn->UseVisualStyleBackColor = false;
+			this->update_deleteBtn->Visible = false;
+			// 
 			// Search
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -922,6 +971,7 @@ namespace School {
 			this->DoubleBuffered = true;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
 			this->Name = L"Search";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"School Management System";
@@ -987,39 +1037,68 @@ namespace School {
 
 		return true;
 	}
-	//TODO: Check if user with the search details inputted exists
-	//	  : Update details of update form
+	//TODO: Update details of update form
 	private: System::Boolean isUserExist() {
-		//Sample Data Only
+		String^ connString = "Server=localhost;database='group3_schooldb';username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+		String^ whereSQL = "";
 
-		if (this->search_fnameTxt->Text->Equals("First Name")) this->update_fnameTxt->Text = "Student";
-		else this->update_fnameTxt->Text = this->search_fnameTxt->Text;
+		String^ name = "";
+		String^ id = this->search_id1Txt->Text + "-" + this->search_id2Txt->Text;
 
-		if (this->search_mnameTxt->Text->Equals("Middle Name")) this->update_mnameTxt->Text = "Data";
-		else this->update_mnameTxt->Text = this->search_mnameTxt->Text;
+		if (!this->search_fnameTxt->Text->Equals("First Name")) {
+			name += this->search_fnameTxt->Text;
+		}
+		if (!this->search_mnameTxt->Text->Equals("Middle Name")) {
+			name += " " + this->search_mnameTxt->Text;
+		}
+		if (!this->search_lnameTxt->Text->Equals("Last Name")) {
+			name += " " + this->search_lnameTxt->Text;
+		}
 
-		if (this->search_lnameTxt->Text->Equals("Last Name")) this->update_lnameTxt->Text = "Sample";
-		else this->update_lnameTxt->Text = this->search_lnameTxt->Text;
+		whereSQL += "FULL_NAME LIKE '%" + name + "%'";
 
-		if (this->search_id1Txt->Text->Equals("•••")) this->update_id1Txt->Text = "123";
-		else this->update_id1Txt->Text = this->search_id1Txt->Text;
-		
-		if (this->search_id2Txt->Text->Equals("••••••")) this->update_id2Txt->Text = "45678A";
-		else this->update_id2Txt->Text = this->search_id2Txt->Text;
+		if (!this->search_id1Txt->Text->Equals("•••") && !this->search_id2Txt->Text->Equals("••••••")) {
+			whereSQL += "AND ID_NUMBER LIKE '%" + id + "%'";
+		}
 
-		// Load DBMGTLAB grades for display
-		this->update_subCbx->Text = "DBMGTLAB";
-		this->update_actGrade->Text = "90.00";
-		this->update_midGrade->Text = "91.10";
-		this->update_finalsGrade->Text = "89.20";
-		this->update_recitGrade->Text = "88.30";
-		this->update_attnGrade->Text = "92.40";
+		conn->Open();
+		String^ adpString = "SELECT * FROM records_table WHERE " + whereSQL + "";
+		MySqlDataAdapter^ adapter = gcnew MySqlDataAdapter(adpString, conn);
+		DataTable^ dt = gcnew DataTable();
+		adapter->Fill(dt);
+		if (dt->Rows->Count == 0) {	return false; }
+		else {
+			this->search_studentDataGrid->DataSource = dt;
+			conn->Close();
+
+			//Sample Data Only
+
+			if (this->search_fnameTxt->Text->Equals("First Name")) this->update_fnameTxt->Text = "Student";
+			else this->update_fnameTxt->Text = this->search_fnameTxt->Text;
+
+			if (this->search_mnameTxt->Text->Equals("Middle Name")) this->update_mnameTxt->Text = "Data";
+			else this->update_mnameTxt->Text = this->search_mnameTxt->Text;
+
+			if (this->search_lnameTxt->Text->Equals("Last Name")) this->update_lnameTxt->Text = "Sample";
+			else this->update_lnameTxt->Text = this->search_lnameTxt->Text;
+
+			if (this->search_id1Txt->Text->Equals("•••")) this->update_id1Txt->Text = "123";
+			else this->update_id1Txt->Text = this->search_id1Txt->Text;
+
+			if (this->search_id2Txt->Text->Equals("••••••")) this->update_id2Txt->Text = "45678A";
+			else this->update_id2Txt->Text = this->search_id2Txt->Text;
+
+			// Load DBMGTLAB grades for display
+			this->update_subCbx->Text = "DBMGTLAB";
+			this->update_actGrade->Text = "90.00";
+			this->update_midGrade->Text = "91.10";
+			this->update_finalsGrade->Text = "89.20";
+			this->update_recitGrade->Text = "88.30";
+			this->update_attnGrade->Text = "92.40";
+		}
 
 		return true;
-	}
-	//TODO: Display search results in datagrid
-	private: System::Void displaySearch() {
-		
 	}
 	//TODO: Display student data in datagrid
 	private: System::Void displayStudentDetails () {
@@ -1029,7 +1108,42 @@ namespace School {
 	private: System::Void updateStudent() {
 		MessageBox::Show("Student Record Updated Successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
-	
+	private: System::Void deleteStudent() {
+		String^ connString = "Server=localhost;database='group3_schooldb';username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		String^ id = this->search_id1Txt->Text + "-" + this->search_id2Txt->Text;
+
+		conn->Open();
+		String^ adpString = "SELECT * FROM records_table WHERE ID_NUMBER ='" + id +"'";
+		MySqlDataAdapter^ adapter = gcnew MySqlDataAdapter(adpString, conn);
+		DataTable^ dt = gcnew DataTable();
+		adapter->Fill(dt);
+		if (dt->Rows->Count == 0) {
+			MessageBox::Show("Enter Valid/Complete ID Number to Delete Student and Existing Records", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		} else { 
+			String^ cmdString = "DELETE FROM records_table WHERE ID_NUMBER='" + id + "'";
+			MySqlCommand^ cmd = gcnew MySqlCommand(cmdString, conn);
+
+			try {
+				cmd->ExecuteNonQuery();
+				MessageBox::Show("Existing Records Deleted Successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			} catch (Exception^ e) { MessageBox::Show("Failed to DELETE records", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+			conn->Close();
+
+			conn->Open();
+			cmdString = "DELETE FROM students_table WHERE ID_NUMBER='" + id + "'";
+			cmd = gcnew MySqlCommand(cmdString, conn);
+
+			try {
+				cmd->ExecuteNonQuery();
+				MessageBox::Show("Student Removed from System Successfully", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			} catch (Exception^ e) { MessageBox::Show("Failed to DELETE student", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+			conn->Close();
+
+			clearSearchFields();
+		}
+	}
 
 
 #pragma endregion
@@ -1053,7 +1167,7 @@ namespace School {
 			else if (isUserExist()) {
 				this->search_updateBtn->Visible = true;
 				this->search_clearBtn->Visible = true;
-				displaySearch();
+				this->search_deleteBtn->Visible = true;
 			} else {
 				MessageBox::Show("Record does not exist", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				clearSearchFields();
@@ -1064,6 +1178,7 @@ namespace School {
 		clearSearchFields();
 		this->search_clearBtn->Visible = false;
 		this->search_updateBtn->Visible = false;
+		this->search_deleteBtn->Visible = false;
 	}
 	private: System::Void search_updateBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		displayStudentDetails();
@@ -1071,12 +1186,17 @@ namespace School {
 		this->search_SearchPnl->Visible = false;
 		this->search_clearBtn->Visible = false;
 		this->search_updateBtn->Visible = false;
+		this->search_deleteBtn->Visible = false;
 		this->search_UpdatePnl->Visible = true;
+	}
+	private: System::Void search_deleteBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		deleteStudent();
 	}
 	// Update Panel
 	private: System::Void update_backBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->search_UpdatePnl->Visible = false;
 		this->search_SearchPnl->Visible = true;
+		this->search_deleteBtn->Visible = false;
 		resetUpdateFields();
 	}
 	private: System::Void update_saveBtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1292,5 +1412,5 @@ namespace School {
 
 #pragma endregion
 	
-	};
+};
 }

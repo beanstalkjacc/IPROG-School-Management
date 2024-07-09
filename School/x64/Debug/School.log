@@ -1,3 +1,12 @@
 ﻿  Driver.cpp
+D:\Documents\GitHub\IPROG-School-Management\Home.h(246,21): warning C4101: 'e': unreferenced local variable
+D:\Documents\GitHub\IPROG-School-Management\Home.h(260,21): warning C4101: 'e': unreferenced local variable
+D:\Documents\GitHub\IPROG-School-Management\Home.h(271,21): warning C4101: 'e': unreferenced local variable
+D:\Documents\GitHub\IPROG-School-Management\Home.h(296,21): warning C4101: 'e': unreferenced local variable
+D:\Documents\GitHub\IPROG-School-Management\Home.h(315,21): warning C4101: 'e': unreferenced local variable
+D:\Documents\GitHub\IPROG-School-Management\Home.h(333,21): warning C4101: 'e': unreferenced local variable
+D:\Documents\GitHub\IPROG-School-Management\Add.h(664,23): warning C4101: 'e': unreferenced local variable
+D:\Documents\GitHub\IPROG-School-Management\Search.h(1131,24): warning C4101: 'e': unreferenced local variable
+D:\Documents\GitHub\IPROG-School-Management\Search.h(1141,24): warning C4101: 'e': unreferenced local variable
   Driver.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   School.vcxproj -> D:\Documents\GitHub\IPROG-School-Management\x64\Debug\School.exe

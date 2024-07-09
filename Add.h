@@ -6,6 +6,7 @@ namespace School {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MySql::Data::MySqlClient;
 
 #pragma region Initialize
 	/// <summary>
@@ -495,13 +496,14 @@ namespace School {
 			// 
 			this->add_studentsDataGrid->AllowUserToAddRows = false;
 			this->add_studentsDataGrid->AllowUserToDeleteRows = false;
+			this->add_studentsDataGrid->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::AllCells;
 			this->add_studentsDataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->add_studentsDataGrid->Location = System::Drawing::Point(515, 365);
 			this->add_studentsDataGrid->Margin = System::Windows::Forms::Padding(4);
 			this->add_studentsDataGrid->Name = L"add_studentsDataGrid";
 			this->add_studentsDataGrid->ReadOnly = true;
 			this->add_studentsDataGrid->RowHeadersWidth = 51;
-			this->add_studentsDataGrid->Size = System::Drawing::Size(476, 270);
+			this->add_studentsDataGrid->Size = System::Drawing::Size(592, 241);
 			this->add_studentsDataGrid->TabIndex = 24;
 			// 
 			// add_TitleLbl
@@ -579,6 +581,7 @@ namespace School {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4);
+			this->MaximizeBox = false;
 			this->Name = L"Add";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"School Management System";
@@ -598,12 +601,70 @@ namespace School {
 #pragma endregion
 
 #pragma region Functions
-		// TODO: Add to db
+	private: System::Void loadDB() {
+		String^ connString = "Server=localhost;database='group3_schooldb';username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		conn->Open();
+		String^ adpString = "SELECT ID_NUMBER,FIRST_NAME,MIDDLE_NAME,LAST_NAME FROM students_table";
+		MySqlDataAdapter^ adapter = gcnew MySqlDataAdapter(adpString, conn);
+		DataTable^ dt = gcnew DataTable();
+		adapter->Fill(dt);
+		this->add_studentsDataGrid->DataSource = dt;
+		conn->Close();
+	}
+	private: System::Double getGWA(Double average) {
+		if (average >= 97) return 1.00;
+		else if (average >= 94) return 1.25;
+		else if (average >= 91) return 1.50;
+		else if (average >= 88) return 1.75;
+		else if (average >= 85) return 2.00;
+		else if (average >= 82) return 2.25;
+		else if (average >= 79) return 2.50;
+		else if (average >= 76) return 2.75;
+		else if (average == 75) return 3.00;
+		else return 5.00;
+	}
+
+	private: System::Double computeAverage() {
+		return (Double::Parse(this->add_actGrade->Text) + Double::Parse(this->add_midGrade->Text) +
+			Double::Parse(this->add_finalsGrade->Text) + Double::Parse(this->add_recitGrade->Text) +
+			Double::Parse(this->add_attnGrade->Text)) / 5;
+	}
+
 	private: System::Void addNewRecord() {
+		String^ id = this->add_id1Txt->Text + "-" + this->add_id2Txt->Text;
+		String^ name = "";
+
+		if (this->add_mnameTxt->Text->Equals("Middle Name"))
+			name = this->add_fnameTxt->Text + " " + this->add_lnameTxt->Text;
+		else
+			name = this->add_fnameTxt->Text + " " + this->add_mnameTxt->Text + " " + this->add_lnameTxt->Text;
+
+		String^ connString = "Server=localhost;database='group3_schooldb';username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		conn->Open();
+		String^ cmdString = "INSERT INTO records_table (ID_NUMBER,FULL_NAME,SUBJECT_CODE,ACTIVITIES,MIDTERMS,FINALS," +
+			"RECITATION,ATTENDANCE,AVERAGE,GWA) VALUES(@id,@name,@sub,@act,@mid,@fin,@rec,@att,@ave,@gwa)";
+		MySqlCommand^ cmd = gcnew MySqlCommand(cmdString, conn);
+		cmd->Parameters->AddWithValue("@id", id);
+		cmd->Parameters->AddWithValue("@name", name);
+		cmd->Parameters->AddWithValue("@sub", this->add_subCbx->Text);
+		cmd->Parameters->AddWithValue("@act", Double::Parse(this->add_actGrade->Text));
+		cmd->Parameters->AddWithValue("@mid", Double::Parse(this->add_midGrade->Text));
+		cmd->Parameters->AddWithValue("@fin", Double::Parse(this->add_finalsGrade->Text));
+		cmd->Parameters->AddWithValue("@rec", Double::Parse(this->add_recitGrade->Text));
+		cmd->Parameters->AddWithValue("@att", Double::Parse(this->add_attnGrade->Text));
+		cmd->Parameters->AddWithValue("@ave", computeAverage());
+		cmd->Parameters->AddWithValue("@gwa", getGWA(computeAverage()));
+		try { 
+			cmd->ExecuteNonQuery();
+			MessageBox::Show("New Record Added", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		} catch (Exception^ e) { /*MessageBox::Show(e->ToString()); */ MessageBox::Show("Failed to INSERT record", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();
 		
-		// DO NOT MODIFY
-		MessageBox::Show("New Record Added", "Success", MessageBoxButtons::OK, 
-			MessageBoxIcon::Information);
+		// Clear Fields
 		this->add_fnameTxt->Text = "First Name"; this->add_fnameTxt->ForeColor = System::Drawing::Color::Silver;
 		this->add_mnameTxt->Text = "Middle Name"; this->add_mnameTxt->ForeColor = System::Drawing::Color::Silver;
 		this->add_lnameTxt->Text = "Last Name"; this->add_lnameTxt->ForeColor = System::Drawing::Color::Silver;
@@ -615,6 +676,25 @@ namespace School {
 		this->add_finalsGrade->Text = "0.00"; this->add_finalsGrade->ForeColor = System::Drawing::Color::Silver;
 		this->add_recitGrade->Text = "0.00"; this->add_recitGrade->ForeColor = System::Drawing::Color::Silver;
 		this->add_attnGrade->Text = "0.00"; this->add_attnGrade->ForeColor = System::Drawing::Color::Silver;
+	}
+
+	private: System::Void addNewStudent() {
+		String^ id = this->add_id1Txt->Text + "-" + this->add_id2Txt->Text;
+
+		String^ connString = "Server=localhost;database='group3_schooldb';username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		conn->Open();
+		String^ cmdString = "INSERT INTO students_table (FIRST_NAME,MIDDLE_NAME,LAST_NAME,ID_NUMBER)" +
+			"VALUES (@fname,@mname,@lname,@id)";
+		MySqlCommand^ cmd = gcnew MySqlCommand(cmdString, conn);
+		cmd->Parameters->AddWithValue("@fname", this->add_fnameTxt->Text);
+		cmd->Parameters->AddWithValue("@mname", this->add_mnameTxt->Text);
+		cmd->Parameters->AddWithValue("@lname", this->add_lnameTxt->Text);
+		cmd->Parameters->AddWithValue("@id", id);
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show(e->ToString()); /*MessageBox::Show("Failed to INSERT student", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error);*/ }
+		conn->Close();
 	}
 
 	private: System::String^ printData() {
@@ -636,10 +716,64 @@ namespace School {
 		return newstudent;
 	}
 
-	// TODO: Check if record for selected subject already exists for student
-	private: System::Boolean checkIfExists() {
-		return false;
-		//MessageBox::Show("Record Already Exists", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	private: System::Boolean checkRecord() {
+		String^ id = this->add_id1Txt->Text + "-" + this->add_id2Txt->Text;
+
+		String^ connString = "Server=localhost;database='group3_schooldb';username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		conn->Open();
+		String^ adpString = "SELECT RECORD_ID FROM records_table WHERE ID_NUMBER='" + id + "' AND SUBJECT_CODE='"
+			+ this->add_subCbx->Text + "'";
+		MySqlDataAdapter^ adapter = gcnew MySqlDataAdapter(adpString, conn);
+		DataTable^ dt = gcnew DataTable();
+		adapter->Fill(dt);
+		if (dt->Rows->Count == 0) { return false; }
+		conn->Close();
+
+		return true;
+	}
+
+	private: System::Int32 checkStudent() {
+		String^ id = this->add_id1Txt->Text + "-" + this->add_id2Txt->Text;
+
+		String^ connString = "Server=localhost;database='group3_schooldb';username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		conn->Open();
+		String^ adpString = "SELECT STUDENT_ID FROM students_table WHERE ID_NUMBER='" + id + "'";
+		MySqlDataAdapter^ adapter = gcnew MySqlDataAdapter(adpString, conn);
+		DataTable^ dt = gcnew DataTable();
+		adapter->Fill(dt);
+		if (dt->Rows->Count == 0) { return 1; }
+		else {
+			adpString = "SELECT STUDENT_ID FROM students_table WHERE FIRST_NAME='" + this->add_fnameTxt->Text +
+				"' AND MIDDLE_NAME='"+ this->add_mnameTxt->Text + "' AND LAST_NAME='" + this->add_lnameTxt->Text + 
+				"' AND ID_NUMBER='" + id + "'";
+			adapter = gcnew MySqlDataAdapter(adpString, conn);
+			dt = gcnew DataTable();
+			adapter->Fill(dt);
+
+			if (dt->Rows->Count == 0) {
+				return -1;
+			} else {
+				conn->Close();
+				if (!checkRecord()) {
+					if (MessageBox::Show(printData(), "Confirm", MessageBoxButtons::YesNo,
+						MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
+						addNewRecord();
+
+						return 0;
+					}
+				} else {
+					MessageBox::Show("Record Already Exists", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+					return 0;
+				}
+			}
+		}
+		conn->Close();
+
+		return 0;
 	}
 
 	private: System::Boolean checkEmpty() {
@@ -678,20 +812,22 @@ namespace School {
 	private: System::Void add_addBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		if(!checkEmpty()) {
 			if (checkGrades()) {
-				if (!checkIfExists()) {
+				int check = checkStudent();
+				if (check == 1) { // 1 means no student id record
 					if (MessageBox::Show(printData(), "Confirm", MessageBoxButtons::YesNo,
 						MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
+						addNewStudent();
 						addNewRecord();
 					}
+				} else if (check == -1) { // -1 means student id exists but wrong name
+					MessageBox::Show("Record Exists but Wrong Name Credentials", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				}
-				else {
-					MessageBox::Show("Record Already Exists", "Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
-				}
+				loadDB();
 			}
 		}
 	}
-	// TODO: Load db, display student list
 	private: System::Void Add_Load(System::Object^ sender, System::EventArgs^ e) {
+		loadDB();
 	}
 #pragma endregion
 

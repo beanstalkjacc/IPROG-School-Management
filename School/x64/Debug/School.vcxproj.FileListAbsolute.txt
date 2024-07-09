@@ -5,3 +5,9 @@ D:\Documents\GitHub\IPROG-School-Management\School\x64\Debug\School.Records.reso
 D:\Documents\GitHub\IPROG-School-Management\School\x64\Debug\School.Search.resources
 D:\Documents\GitHub\IPROG-School-Management\School\x64\Debug\School.vcxproj.GenerateResource.cache
 D:\Documents\GitHub\IPROG-School-Management\School\x64\Debug\School.Results.resources
+D:\Documents\GitHub\IPROG-School-Management\x64\Debug\Google.Protobuf.dll
+D:\Documents\GitHub\IPROG-School-Management\x64\Debug\BouncyCastle.Crypto.dll
+D:\Documents\GitHub\IPROG-School-Management\x64\Debug\Ubiety.Dns.Core.dll
+D:\Documents\GitHub\IPROG-School-Management\x64\Debug\Renci.SshNet.dll
+D:\Documents\GitHub\IPROG-School-Management\x64\Debug\MySql.Data.xml
+D:\Documents\GitHub\IPROG-School-Management\School\x64\Debug\School.vcxproj.Up2Date

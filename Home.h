@@ -8,6 +8,7 @@ namespace School {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Summary for Home
@@ -218,10 +219,123 @@ namespace School {
 			this->Name = L"Home";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"School Management System";
+			this->Load += gcnew System::EventHandler(this, &Home::Home_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+
+#pragma region SQL Queries
+	private: System::Void createDB() {
+		String^ connString = "Server=localhost;username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		// Drop existing database if it exists
+		/*conn->Open();
+		String^ cmdString = "DROP DATABASE IF EXISTS group3_schooldb";
+		MySqlCommand^ cmd = gcnew MySqlCommand(cmdString, conn);
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show("Failed to DROP database", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();*/
+
+		// Create new database
+		conn->Open();
+		String^ cmdString = "CREATE DATABASE IF NOT EXISTS group3_schooldb";
+		MySqlCommand^ cmd = gcnew MySqlCommand(cmdString, conn);
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show("Failed to CREATE database", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();
+	}
+	private: System::Void createTables() {
+		String^ connString = "Server=localhost;database='group3_schooldb';username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		// Create Students Table
+		conn->Open();
+		String^ cmdString = "CREATE TABLE IF NOT EXISTS `students_table` (`STUDENT_ID` INT NOT NULL AUTO_INCREMENT ," +
+			"`ID_NUMBER` VARCHAR(15) NOT NULL, `FIRST_NAME` VARCHAR(50) NOT NULL, `MIDDLE_NAME` VARCHAR(25) NOT NULL," +
+			"`LAST_NAME` VARCHAR(25) NOT NULL, PRIMARY KEY(`STUDENT_ID`))";
+		MySqlCommand^ cmd = gcnew MySqlCommand(cmdString, conn);
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show("Failed to CREATE students_table", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();
+
+		// Create Records Table
+		conn->Open();
+		cmdString = "CREATE TABLE IF NOT EXISTS `records_table` (`RECORD_ID` INT NOT NULL AUTO_INCREMENT," +
+			"`ID_NUMBER` VARCHAR(15) NOT NULL, `FULL_NAME` VARCHAR(150) NOT NULL, `SUBJECT_CODE` VARCHAR(20) NOT NULL," +
+			"`ACTIVITIES` DOUBLE NOT NULL, `MIDTERMS` DOUBLE NOT NULL, `FINALS` DOUBLE NOT NULL, `RECITATION` DOUBLE NOT NULL," +
+			"`ATTENDANCE` DOUBLE NOT NULL, `AVERAGE` DOUBLE NOT NULL, `GWA` DOUBLE NOT NULL, PRIMARY KEY(`RECORD_ID`))";
+		cmd = gcnew MySqlCommand(cmdString, conn);
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show("Failed to CREATE records_table", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();
+
+		// If table is empty, populate
+		conn->Open();
+		String^ adpString = "SELECT * FROM students_table";
+		MySqlDataAdapter^ adapter = gcnew MySqlDataAdapter(adpString, conn);
+		DataTable^ dt = gcnew DataTable();
+		adapter->Fill(dt);
+		if (dt->Rows->Count == 0) { populateTables(); }
+		conn->Close();
+	}
+	private: System::Void populateTables() {
+		String^ connString = "Server=localhost;database='group3_schooldb';username='root';password=''";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		// Add Student
+		conn->Open();
+		String^ cmdString = "INSERT INTO students_table (ID_NUMBER,FIRST_NAME,MIDDLE_NAME,LAST_NAME) VALUES (@id,@fname,@mname,@lname)";
+		MySqlCommand^ cmd = gcnew MySqlCommand(cmdString, conn);
+		cmd->Parameters->AddWithValue("@id", "234-05185M");
+		cmd->Parameters->AddWithValue("@fname", "Jackielou");
+		cmd->Parameters->AddWithValue("@mname", "Franco");
+		cmd->Parameters->AddWithValue("@lname", "Decena");
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show("Failed to INSERT student", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();
+
+		// Add Records
+		conn->Open();
+		cmdString = "INSERT INTO records_table (ID_NUMBER,FULL_NAME,SUBJECT_CODE,ACTIVITIES,MIDTERMS,FINALS," +
+			"RECITATION,ATTENDANCE,AVERAGE,GWA) VALUES(@id,@name,@sub,@act,@mid,@fin,@rec,@att,@ave,@gwa)";
+		cmd = gcnew MySqlCommand(cmdString, conn);
+		cmd->Parameters->AddWithValue("@id", "234-05185M");
+		cmd->Parameters->AddWithValue("@name", "Jackielou Franco Decena");
+		cmd->Parameters->AddWithValue("@sub", "IPROGLAB");
+		cmd->Parameters->AddWithValue("@act", 85.00);
+		cmd->Parameters->AddWithValue("@mid", 86.10);
+		cmd->Parameters->AddWithValue("@fin", 87.20);
+		cmd->Parameters->AddWithValue("@rec", 90.60);
+		cmd->Parameters->AddWithValue("@att", 89.50);
+		cmd->Parameters->AddWithValue("@ave", 87.68);
+		cmd->Parameters->AddWithValue("@gwa", 2.00);
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show("Failed to INSERT record", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();
+
+		conn->Open();
+		cmdString = "INSERT INTO records_table (ID_NUMBER,FULL_NAME,SUBJECT_CODE,ACTIVITIES,MIDTERMS,FINALS," +
+			"RECITATION,ATTENDANCE,AVERAGE,GWA) VALUES(@id,@name,@sub,@act,@mid,@fin,@rec,@att,@ave,@gwa)";
+		cmd = gcnew MySqlCommand(cmdString, conn);
+		cmd->Parameters->AddWithValue("@id", "234-05185M");
+		cmd->Parameters->AddWithValue("@name", "Jackielou Franco Decena");
+		cmd->Parameters->AddWithValue("@sub", "DBMGTLAB");
+		cmd->Parameters->AddWithValue("@act", 91.00);
+		cmd->Parameters->AddWithValue("@mid", 92.90);
+		cmd->Parameters->AddWithValue("@fin", 93.80);
+		cmd->Parameters->AddWithValue("@rec", 89.40);
+		cmd->Parameters->AddWithValue("@att", 88.30);
+		cmd->Parameters->AddWithValue("@ave", 91.08);
+		cmd->Parameters->AddWithValue("@gwa", 1.50);
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show("Failed to INSERT record", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();
+	}
+#pragma endregion
+
+#pragma region UI Actions
 	private: System::Void home_exitBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
@@ -249,5 +363,11 @@ namespace School {
 		this->Close();
 		this->switchToResults = true;
 	}
-};
+	private: System::Void Home_Load(System::Object^ sender, System::EventArgs^ e) {
+		createDB();
+		createTables();
+	}
+#pragma endregion
+
+	};
 }
