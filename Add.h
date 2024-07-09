@@ -693,7 +693,7 @@ namespace School {
 		cmd->Parameters->AddWithValue("@lname", this->add_lnameTxt->Text);
 		cmd->Parameters->AddWithValue("@id", id);
 		try { cmd->ExecuteNonQuery(); }
-		catch (Exception^ e) { MessageBox::Show(e->ToString()); /*MessageBox::Show("Failed to INSERT student", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error);*/ }
+		catch (Exception^ e) { MessageBox::Show("Failed to INSERT student", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
 		conn->Close();
 	}
 

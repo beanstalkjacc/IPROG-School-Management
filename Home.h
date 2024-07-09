@@ -296,6 +296,28 @@ namespace School {
 		catch (Exception^ e) { MessageBox::Show("Failed to INSERT student", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
 		conn->Close();
 
+		conn->Open();
+		cmdString = "INSERT INTO students_table (ID_NUMBER,FIRST_NAME,MIDDLE_NAME,LAST_NAME) VALUES (@id,@fname,@mname,@lname)";
+		cmd = gcnew MySqlCommand(cmdString, conn);
+		cmd->Parameters->AddWithValue("@id", "234-03966M");
+		cmd->Parameters->AddWithValue("@fname", "Steve Austin");
+		cmd->Parameters->AddWithValue("@mname", "Salamanca");
+		cmd->Parameters->AddWithValue("@lname", "Manio");
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show("Failed to INSERT student", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();
+
+		conn->Open();
+		cmdString = "INSERT INTO students_table (ID_NUMBER,FIRST_NAME,MIDDLE_NAME,LAST_NAME) VALUES (@id,@fname,@mname,@lname)";
+		cmd = gcnew MySqlCommand(cmdString, conn);
+		cmd->Parameters->AddWithValue("@id", "234-06605M");
+		cmd->Parameters->AddWithValue("@fname", "Jharenz");
+		cmd->Parameters->AddWithValue("@mname", "");
+		cmd->Parameters->AddWithValue("@lname", "De Guzman");
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show("Failed to INSERT student", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();
+
 		// Add Records
 		conn->Open();
 		cmdString = "INSERT INTO records_table (ID_NUMBER,FULL_NAME,SUBJECT_CODE,ACTIVITIES,MIDTERMS,FINALS," +
@@ -329,6 +351,42 @@ namespace School {
 		cmd->Parameters->AddWithValue("@att", 88.30);
 		cmd->Parameters->AddWithValue("@ave", 91.08);
 		cmd->Parameters->AddWithValue("@gwa", 1.50);
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show("Failed to INSERT record", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();
+
+		conn->Open();
+		cmdString = "INSERT INTO records_table (ID_NUMBER,FULL_NAME,SUBJECT_CODE,ACTIVITIES,MIDTERMS,FINALS," +
+			"RECITATION,ATTENDANCE,AVERAGE,GWA) VALUES(@id,@name,@sub,@act,@mid,@fin,@rec,@att,@ave,@gwa)";
+		cmd = gcnew MySqlCommand(cmdString, conn);
+		cmd->Parameters->AddWithValue("@id", "234-06605M");
+		cmd->Parameters->AddWithValue("@name", "Jharenz De Guzman");
+		cmd->Parameters->AddWithValue("@sub", "DBMGTLAB");
+		cmd->Parameters->AddWithValue("@act", 88.00);
+		cmd->Parameters->AddWithValue("@mid", 78.00);
+		cmd->Parameters->AddWithValue("@fin", 80.00);
+		cmd->Parameters->AddWithValue("@rec", 60.00);
+		cmd->Parameters->AddWithValue("@att", 60.00);
+		cmd->Parameters->AddWithValue("@ave", 73.20);
+		cmd->Parameters->AddWithValue("@gwa", 5.00);
+		try { cmd->ExecuteNonQuery(); }
+		catch (Exception^ e) { MessageBox::Show("Failed to INSERT record", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
+		conn->Close();
+
+		conn->Open();
+		cmdString = "INSERT INTO records_table (ID_NUMBER,FULL_NAME,SUBJECT_CODE,ACTIVITIES,MIDTERMS,FINALS," +
+			"RECITATION,ATTENDANCE,AVERAGE,GWA) VALUES(@id,@name,@sub,@act,@mid,@fin,@rec,@att,@ave,@gwa)";
+		cmd = gcnew MySqlCommand(cmdString, conn);
+		cmd->Parameters->AddWithValue("@id", "234-03966M");
+		cmd->Parameters->AddWithValue("@name", "Steve Austin Salamanca Manio");
+		cmd->Parameters->AddWithValue("@sub", "GEFILDIS");
+		cmd->Parameters->AddWithValue("@act", 96.03);
+		cmd->Parameters->AddWithValue("@mid", 97.88);
+		cmd->Parameters->AddWithValue("@fin", 100.00);
+		cmd->Parameters->AddWithValue("@rec", 100.00);
+		cmd->Parameters->AddWithValue("@att", 100.00);
+		cmd->Parameters->AddWithValue("@ave", 98.78);
+		cmd->Parameters->AddWithValue("@gwa", 1.00);
 		try { cmd->ExecuteNonQuery(); }
 		catch (Exception^ e) { MessageBox::Show("Failed to INSERT record", "SQL Error", MessageBoxButtons::OK, MessageBoxIcon::Error); }
 		conn->Close();
